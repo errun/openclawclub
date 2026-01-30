@@ -21,7 +21,7 @@
 | Primary | `#0B0F16` | `--color-primary` |
 | Secondary | `#3B4151` | `--color-secondary` |
 | CTA/Accent | `#0EA5E9` | `--color-cta` |
-| Background | `#F7F8FB` | `--color-background` |
+| Background | `#E6ECF6` | `--color-background` |
 | Text | `#0B0F16` | `--color-text` |
 
 **Color Notes:** Monochrome + blue accent

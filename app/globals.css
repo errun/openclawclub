@@ -7,7 +7,7 @@
   --color-primary: #0b0f16;
   --color-secondary: #3b4151;
   --color-cta: #0ea5e9;
-  --color-background: #f7f8fb;
+  --color-background: #e6ecf6;
   --color-text: #0b0f16;
   --color-line: #e5e7eb;
 }
@@ -25,7 +25,7 @@ body {
       rgba(11, 15, 22, 0.12),
       transparent 60%
     ),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.9), #f7f8fb 55%);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), #e6ecf6 55%);
   background-attachment: fixed;
 }
 
