@@ -7,10 +7,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        body: ['var(--font-body)', 'ui-sans-serif', 'system-ui'],
+        display: ['var(--font-heading)', 'ui-sans-serif', 'system-ui']
+      },
       colors: {
-        ink: '#0f172a',
-        mist: '#f8fafc',
-        accent: '#0ea5e9'
+        ink: '#0B0F16',
+        primary: '#0B0F16',
+        muted: '#3B4151',
+        accent: '#0EA5E9',
+        background: '#F7F8FB',
+        line: '#E5E7EB',
+        panel: '#FFFFFF'
       }
     }
   },

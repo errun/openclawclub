@@ -41,11 +41,14 @@ export default function HubPage({ params }: { params: { hub: Hub } }) {
           { label: getHubLabel(hub) }
         ]}
       />
-      <section className="space-y-4">
-        <h1 className="text-4xl font-semibold text-slate-900 sm:text-5xl">
+      <section className="reveal rounded-3xl border border-line/70 bg-white/70 p-8 backdrop-blur">
+        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted/70">
+          Clawbot / Hub
+        </p>
+        <h1 className="mt-4 text-4xl font-semibold text-ink sm:text-5xl">
           {meta.title}
         </h1>
-        <p className="max-w-2xl text-base text-slate-600">{meta.description}</p>
+        <p className="mt-3 max-w-2xl text-base text-muted">{meta.description}</p>
       </section>
 
       <section className="grid gap-6 md:grid-cols-2">
@@ -61,17 +64,17 @@ export default function HubPage({ params }: { params: { hub: Hub } }) {
         ))}
       </section>
 
-      <section className="rounded-2xl border border-slate-200 bg-white/80 p-6">
-        <h2 className="text-lg font-semibold text-slate-900">相关链接</h2>
+      <section className="rounded-3xl border border-line/70 bg-white/70 p-6 backdrop-blur">
+        <h2 className="text-lg font-semibold text-ink">相关链接</h2>
         <div className="mt-4 flex flex-wrap gap-3">
           {relatedLinks.length === 0 ? (
-            <span className="text-sm text-slate-500">暂无相关内容</span>
+            <span className="text-sm text-muted">暂无相关内容</span>
           ) : (
             relatedLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded-full border border-slate-200 bg-white px-3 py-1 text-sm text-slate-600 hover:border-slate-300 hover:text-slate-900"
+                className="cursor-pointer rounded-full border border-line/70 bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-muted transition-colors hover:border-ink/20 hover:text-ink"
               >
                 {link.label}
               </Link>

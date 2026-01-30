@@ -4,10 +4,59 @@
 
 :root {
   color-scheme: light;
+  --color-primary: #0b0f16;
+  --color-secondary: #3b4151;
+  --color-cta: #0ea5e9;
+  --color-background: #f7f8fb;
+  --color-text: #0b0f16;
+  --color-line: #e5e7eb;
 }
 
 body {
-  @apply bg-gradient-to-br from-white via-mist to-slate-100 text-ink antialiased;
+  @apply bg-background text-ink antialiased;
+  position: relative;
+  background-image: radial-gradient(
+      900px 520px at 85% -10%,
+      rgba(14, 165, 233, 0.18),
+      transparent 60%
+    ),
+    radial-gradient(
+      700px 420px at 5% -5%,
+      rgba(11, 15, 22, 0.12),
+      transparent 60%
+    ),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), #f7f8fb 55%);
+  background-attachment: fixed;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: linear-gradient(
+      rgba(15, 23, 42, 0.06) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  opacity: 0.6;
+  z-index: -1;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.03em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-cta);
+    outline-offset: 2px;
+  }
 }
 
 .prose :where(a) {
@@ -15,5 +64,55 @@ body {
 }
 
 .prose :where(code):not(:where([class~="not-prose"] *)) {
-  @apply rounded bg-slate-100 px-1 py-0.5 text-sm text-slate-800;
+  @apply rounded bg-white px-1 py-0.5 text-sm text-muted;
+}
+
+@layer utilities {
+  .reveal {
+    animation: reveal 700ms ease-out both;
+  }
+
+  .reveal-delay-1 {
+    animation-delay: 120ms;
+  }
+
+  .reveal-delay-2 {
+    animation-delay: 240ms;
+  }
+
+  .reveal-delay-3 {
+    animation-delay: 360ms;
+  }
+
+  .orb {
+    animation: float 8s ease-in-out infinite;
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .orb {
+    animation: none;
+  }
 }

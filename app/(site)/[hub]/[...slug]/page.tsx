@@ -52,28 +52,28 @@ export default function PostPage({
         ]}
       />
 
-      <section className="space-y-4">
-        <h1 className="text-4xl font-semibold text-slate-900 sm:text-5xl">
+      <section className="reveal rounded-3xl border border-line/70 bg-white/70 p-8 backdrop-blur">
+        <h1 className="text-4xl font-semibold text-ink sm:text-5xl">
           {post.title}
         </h1>
-        <p className="text-base text-slate-600">{post.description}</p>
-        <div className="text-xs uppercase tracking-wide text-slate-400">
+        <p className="mt-3 text-base text-muted">{post.description}</p>
+        <div className="mt-4 text-xs uppercase tracking-[0.3em] text-muted/70">
           {post.date}
         </div>
       </section>
 
-      <article className="prose prose-slate max-w-none">
+      <article className="prose prose-neutral max-w-none prose-headings:font-display prose-headings:text-ink prose-p:text-muted prose-li:text-muted">
         <MDXRemote source={post.content} />
       </article>
 
-      <section className="rounded-2xl border border-slate-200 bg-white/80 p-6">
-        <h2 className="text-lg font-semibold text-slate-900">相关链接</h2>
+      <section className="rounded-3xl border border-line/70 bg-white/70 p-6 backdrop-blur">
+        <h2 className="text-lg font-semibold text-ink">相关链接</h2>
         <div className="mt-4 flex flex-wrap gap-3">
           {relatedLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-full border border-slate-200 bg-white px-3 py-1 text-sm text-slate-600 hover:border-slate-300 hover:text-slate-900"
+              className="cursor-pointer rounded-full border border-line/70 bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-muted transition-colors hover:border-ink/20 hover:text-ink"
             >
               {link.label}
             </Link>

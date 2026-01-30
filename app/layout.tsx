@@ -1,19 +1,28 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Space_Grotesk } from 'next/font/google';
+import { DM_Sans, Space_Grotesk } from 'next/font/google';
 
-const spaceGrotesk = Space_Grotesk({
+const bodyFont = DM_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  display: 'swap',
+  variable: '--font-body'
+});
+
+const displayFont = Space_Grotesk({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
-  display: 'swap'
+  display: 'swap',
+  variable: '--font-heading'
 });
 
 export const metadata: Metadata = {
   title: {
-    default: 'OpenClawClub - 安装与 Skills 指南',
-    template: '%s | OpenClawClub'
+    default: 'Clawbot - 个人 AI 助手生态',
+    template: '%s | Clawbot'
   },
-  description: 'OpenClawClub 安装与 Skills 资料库，聚合安装指南、技能实践与避坑清单。'
+  description:
+    'Clawbot 个人 AI 助手生态网站：统一接入、Skills 生态、自动化与安全最佳实践。'
 };
 
 export default function RootLayout({
@@ -22,8 +31,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="zh-Hans">
-      <body className={spaceGrotesk.className}>{children}</body>
+    <html
+      lang="zh-Hans"
+      className={`${bodyFont.variable} ${displayFont.variable}`}
+    >
+      <body className="font-body antialiased">{children}</body>
     </html>
   );
 }

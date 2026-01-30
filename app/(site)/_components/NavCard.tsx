@@ -12,13 +12,15 @@ export default function NavCard({
   return (
     <Link
       href={href}
-      className="flex h-full flex-col justify-between rounded-2xl border border-slate-200 bg-white/80 p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:bg-white"
+      className="group flex h-full cursor-pointer flex-col justify-between rounded-3xl border border-line/70 bg-white/70 p-6 shadow-[0_12px_40px_rgba(11,15,22,0.06)] backdrop-blur transition-colors transition-shadow hover:border-ink/15 hover:bg-white hover:shadow-[0_18px_50px_rgba(11,15,22,0.08)]"
     >
       <div className="space-y-3">
-        <h2 className="text-xl font-semibold text-slate-900">{title}</h2>
-        <p className="text-sm text-slate-600">{description}</p>
+        <h2 className="text-xl font-semibold text-ink">{title}</h2>
+        <p className="text-sm text-muted">{description}</p>
       </div>
-      <span className="mt-6 text-sm font-medium text-accent">进入 →</span>
+      <span className="mt-6 text-xs font-semibold uppercase tracking-[0.3em] text-accent">
+        进入
+      </span>
     </Link>
   );
 }
