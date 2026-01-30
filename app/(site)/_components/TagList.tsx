@@ -5,7 +5,7 @@ export default function TagList({ tags }: { tags: string[] }) {
       {tags.map((tag) => (
         <span
           key={tag}
-          className="rounded-full border border-line/70 bg-white/70 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.2em] text-muted"
+          className="rounded-full border border-line/70 bg-panel/70 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.2em] text-muted"
         >
           {tag}
         </span>

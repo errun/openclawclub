@@ -17,7 +17,7 @@ export default function PostCard({
   return (
     <Link
       href={href}
-      className="group flex h-full cursor-pointer flex-col justify-between rounded-3xl border border-line/70 bg-white/70 p-6 shadow-[0_10px_32px_rgba(11,15,22,0.05)] backdrop-blur transition-colors transition-shadow hover:border-ink/15 hover:bg-white hover:shadow-[0_16px_44px_rgba(11,15,22,0.08)]"
+      className="group flex h-full cursor-pointer flex-col justify-between rounded-3xl border border-line/70 bg-panel/70 p-6 shadow-[0_10px_32px_rgba(2,6,23,0.45)] backdrop-blur transition-colors transition-shadow hover:border-ink/15 hover:bg-panel/90 hover:shadow-[0_16px_44px_rgba(2,6,23,0.6)]"
     >
       <div className="space-y-3">
         <h3 className="text-lg font-semibold text-ink group-hover:text-primary">

@@ -67,7 +67,7 @@ export default function PostPage({
         ]}
       />
 
-      <section className="reveal rounded-3xl border border-line/70 bg-white/70 p-8 backdrop-blur">
+      <section className="reveal rounded-3xl border border-line/70 bg-panel/70 p-8 backdrop-blur">
         <h1 className="text-4xl font-semibold text-ink sm:text-5xl">
           {post.title}
         </h1>
@@ -77,18 +77,18 @@ export default function PostPage({
         </div>
       </section>
 
-      <article className="prose prose-neutral max-w-none prose-headings:font-display prose-headings:text-ink prose-p:text-muted prose-li:text-muted">
+      <article className="prose prose-invert max-w-none prose-headings:font-display prose-headings:text-ink prose-p:text-muted prose-li:text-muted">
         <MDXRemote source={post.content} />
       </article>
 
-      <section className="rounded-3xl border border-line/70 bg-white/70 p-6 backdrop-blur">
+      <section className="rounded-3xl border border-line/70 bg-panel/70 p-6 backdrop-blur">
         <h2 className="text-lg font-semibold text-ink">相关链接</h2>
         <div className="mt-4 flex flex-wrap gap-3">
           {relatedLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="cursor-pointer rounded-full border border-line/70 bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-muted transition-colors hover:border-ink/20 hover:text-ink"
+              className="cursor-pointer rounded-full border border-line/70 bg-panel/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-muted transition-colors hover:border-ink/20 hover:text-ink"
             >
               {link.label}
             </Link>

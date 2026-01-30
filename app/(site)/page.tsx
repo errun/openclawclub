@@ -8,7 +8,7 @@ export default function HomePage() {
 
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-16 px-6 py-16">
-      <section className="reveal relative overflow-hidden rounded-[32px] border border-line/70 bg-white/70 p-10 backdrop-blur md:p-14">
+      <section className="reveal relative overflow-hidden rounded-[32px] border border-line/70 bg-panel/70 p-10 backdrop-blur md:p-14">
         <div className="orb absolute -right-12 -top-16 h-48 w-48 rounded-full bg-accent/20 blur-3xl" />
         <div className="absolute -bottom-24 left-16 h-40 w-40 rounded-full bg-ink/10 blur-3xl" />
         <p className="text-xs font-semibold uppercase tracking-[0.4em] text-muted/70">
@@ -24,13 +24,13 @@ export default function HomePage() {
         <div className="mt-8 flex flex-wrap gap-4">
           <Link
             href="/install"
-            className="inline-flex cursor-pointer items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white shadow-[0_14px_32px_rgba(14,165,233,0.25)] transition-shadow hover:shadow-[0_18px_40px_rgba(14,165,233,0.35)]"
+            className="inline-flex cursor-pointer items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-black shadow-[0_14px_32px_rgba(200,165,98,0.28)] transition-shadow hover:shadow-[0_18px_40px_rgba(200,165,98,0.4)]"
           >
             快速接入
           </Link>
           <Link
             href="/skills"
-            className="inline-flex cursor-pointer items-center justify-center rounded-full border border-ink/15 bg-white/70 px-6 py-3 text-sm font-semibold text-ink transition-colors hover:border-ink/30 hover:bg-white"
+            className="inline-flex cursor-pointer items-center justify-center rounded-full border border-ink/15 bg-panel/70 px-6 py-3 text-sm font-semibold text-ink transition-colors hover:border-ink/30 hover:bg-panel/90"
           >
             浏览 Skills
           </Link>
@@ -52,7 +52,7 @@ export default function HomePage() {
           ].map((item) => (
             <div
               key={item.title}
-              className="rounded-2xl border border-line/70 bg-white/70 p-4 text-sm backdrop-blur"
+              className="rounded-2xl border border-line/70 bg-panel/70 p-4 text-sm backdrop-blur"
             >
               <p className="text-sm font-semibold text-ink">{item.title}</p>
               <p className="mt-2 text-sm text-muted">{item.desc}</p>
@@ -61,7 +61,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="reveal reveal-delay-1 rounded-3xl border border-line/70 bg-white/70 p-8 backdrop-blur">
+      <section className="reveal reveal-delay-1 rounded-3xl border border-line/70 bg-panel/70 p-8 backdrop-blur">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted/70">
           品牌说明
         </p>
@@ -76,7 +76,7 @@ export default function HomePage() {
           {['openclaw', 'moltbot', 'clawdbot'].map((label) => (
             <span
               key={label}
-              className="rounded-full border border-line/70 bg-white/80 px-3 py-1"
+              className="rounded-full border border-line/70 bg-panel/80 px-3 py-1"
             >
               {label}
             </span>
@@ -103,7 +103,7 @@ export default function HomePage() {
       </section>
 
       <section className="reveal reveal-delay-2 grid gap-6 lg:grid-cols-3">
-        <div className="rounded-3xl border border-line/70 bg-white/70 p-6 backdrop-blur">
+        <div className="rounded-3xl border border-line/70 bg-panel/70 p-6 backdrop-blur">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted/70">
             生态方法
           </p>
@@ -112,7 +112,7 @@ export default function HomePage() {
             统一接入后，以可配置 Skills 构建能力链路，再用可观测体系闭环优化。
           </p>
         </div>
-        <div className="rounded-3xl border border-line/70 bg-white/70 p-6 backdrop-blur">
+        <div className="rounded-3xl border border-line/70 bg-panel/70 p-6 backdrop-blur">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted/70">
             协作方式
           </p>
@@ -121,7 +121,7 @@ export default function HomePage() {
             通过权限域、日志与版本控制保证个人助手在安全边界内执行。
           </p>
         </div>
-        <div className="rounded-3xl border border-line/70 bg-white/70 p-6 backdrop-blur">
+        <div className="rounded-3xl border border-line/70 bg-panel/70 p-6 backdrop-blur">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted/70">
             成长路线
           </p>
@@ -153,17 +153,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="reveal reveal-delay-3 rounded-[32px] border border-line/70 bg-ink px-8 py-10 text-white">
+      <section className="reveal reveal-delay-3 rounded-[32px] border border-line/70 bg-panel px-8 py-10 text-ink">
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div>
             <h2 className="text-2xl font-semibold">加入 Clawbot 生态</h2>
-            <p className="mt-2 max-w-2xl text-sm text-white/70">
+            <p className="mt-2 max-w-2xl text-sm text-muted">
               从接入、能力、治理到最佳实践，快速完成你的个人 AI 助手搭建。
             </p>
           </div>
           <Link
             href="/install"
-            className="inline-flex cursor-pointer items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-white/90"
+            className="inline-flex cursor-pointer items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-black shadow-[0_14px_32px_rgba(200,165,98,0.28)] transition-shadow hover:shadow-[0_18px_40px_rgba(200,165,98,0.4)]"
           >
             开始接入
           </Link>

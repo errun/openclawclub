@@ -12,13 +12,13 @@ const config: Config = {
         display: ['var(--font-heading)', 'ui-sans-serif', 'system-ui']
       },
       colors: {
-        ink: '#0B0F16',
-        primary: '#0B0F16',
-        muted: '#3B4151',
-        accent: '#0EA5E9',
-        background: '#DEE6F2',
-        line: '#E5E7EB',
-        panel: '#FFFFFF'
+        ink: '#E8EBF2',
+        primary: '#0B0B0C',
+        muted: '#98A2B3',
+        accent: '#C8A562',
+        background: '#0B0B0C',
+        line: '#1E2633',
+        panel: '#121722'
       }
     }
   },

@@ -12,7 +12,7 @@ export default function NavCard({
   return (
     <Link
       href={href}
-      className="group flex h-full cursor-pointer flex-col justify-between rounded-3xl border border-line/70 bg-white/70 p-6 shadow-[0_12px_40px_rgba(11,15,22,0.06)] backdrop-blur transition-colors transition-shadow hover:border-ink/15 hover:bg-white hover:shadow-[0_18px_50px_rgba(11,15,22,0.08)]"
+      className="group flex h-full cursor-pointer flex-col justify-between rounded-3xl border border-line/70 bg-panel/70 p-6 shadow-[0_12px_40px_rgba(2,6,23,0.5)] backdrop-blur transition-colors transition-shadow hover:border-ink/15 hover:bg-panel/90 hover:shadow-[0_18px_50px_rgba(2,6,23,0.6)]"
     >
       <div className="space-y-3">
         <h2 className="text-xl font-semibold text-ink">{title}</h2>

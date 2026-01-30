@@ -1,5 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { DM_Sans, Space_Grotesk } from 'next/font/google';
 import { BRAND_KEYWORDS } from '@/lib/seo';
 import { SITE_URL } from '@/lib/site';
@@ -54,7 +55,19 @@ export default function RootLayout({
       lang="zh-Hans"
       className={`${bodyFont.variable} ${displayFont.variable}`}
     >
-      <body className="font-body antialiased">{children}</body>
+      <body className="font-body antialiased">
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-E6JFEP5KN5"
+        />
+        <Script id="google-gtag" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-E6JFEP5KN5');`}
+        </Script>
+        {children}
+      </body>
     </html>
   );
 }

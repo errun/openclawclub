@@ -18,13 +18,13 @@
 
 | Role | Hex | CSS Variable |
 |------|-----|--------------|
-| Primary | `#0B0F16` | `--color-primary` |
-| Secondary | `#3B4151` | `--color-secondary` |
-| CTA/Accent | `#0EA5E9` | `--color-cta` |
-| Background | `#DEE6F2` | `--color-background` |
-| Text | `#0B0F16` | `--color-text` |
+| Primary | `#0B0B0C` | `--color-primary` |
+| Secondary | `#1E2633` | `--color-secondary` |
+| CTA/Accent | `#C8A562` | `--color-cta` |
+| Background | `#0B0B0C` | `--color-background` |
+| Text | `#E8EBF2` | `--color-text` |
 
-**Color Notes:** Monochrome + blue accent
+**Color Notes:** Deep black + champagne gold accent
 
 ### Typography
 
@@ -68,8 +68,8 @@
 ```css
 /* Primary Button */
 .btn-primary {
-  background: #0EA5E9;
-  color: white;
+  background: #C8A562;
+  color: #0B0B0C;
   padding: 12px 24px;
   border-radius: 8px;
   font-weight: 600;
@@ -79,14 +79,14 @@
 
 .btn-primary:hover {
   filter: brightness(0.98);
-  box-shadow: 0 10px 24px rgba(14, 165, 233, 0.2);
+  box-shadow: 0 10px 24px rgba(200, 165, 98, 0.25);
 }
 
 /* Secondary Button */
 .btn-secondary {
   background: transparent;
-  color: #0B0F16;
-  border: 2px solid #0B0F16;
+  color: #E8EBF2;
+  border: 2px solid #1E2633;
   padding: 12px 24px;
   border-radius: 8px;
   font-weight: 600;
@@ -99,18 +99,18 @@
 
 ```css
 .card {
-  background: #FFFFFF;
+  background: #121722;
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 10px 30px rgba(11, 15, 22, 0.06);
-  border: 1px solid #E5E7EB;
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.5);
+  border: 1px solid #1E2633;
   transition: box-shadow 200ms ease, border-color 200ms ease;
   cursor: pointer;
 }
 
 .card:hover {
-  box-shadow: 0 16px 36px rgba(11, 15, 22, 0.08);
-  border-color: #CBD5F5;
+  box-shadow: 0 16px 36px rgba(2, 6, 23, 0.6);
+  border-color: #2B3547;
 }
 ```
 
@@ -119,16 +119,18 @@
 ```css
 .input {
   padding: 12px 16px;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #1E2633;
+  background: #0B0B0C;
+  color: #E8EBF2;
   border-radius: 8px;
   font-size: 16px;
   transition: border-color 200ms ease;
 }
 
 .input:focus {
-  border-color: #18181B;
+  border-color: #C8A562;
   outline: none;
-  box-shadow: 0 0 0 3px #18181B20;
+  box-shadow: 0 0 0 3px #C8A56233;
 }
 ```
 
@@ -136,12 +138,12 @@
 
 ```css
 .modal-overlay {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(5, 8, 15, 0.7);
   backdrop-filter: blur(4px);
 }
 
 .modal {
-  background: white;
+  background: #121722;
   border-radius: 16px;
   padding: 32px;
   box-shadow: var(--shadow-xl);
@@ -154,13 +156,13 @@
 
 ## Style Guidelines
 
-**Style:** Futuristic Minimalism
+**Style:** Luxury Dark Minimalism
 
-**Keywords:** crisp geometry, high contrast, subtle glow, negative space, precise typography, gridlines
+**Keywords:** graphite, low-gloss, champagne gold accent, restrained glow, precise typography, deep space
 
-**Best For:** AI products, developer tools, personal assistant platforms, modern SaaS
+**Best For:** Premium AI products, luxury tech, high-end SaaS, executive tools
 
-**Key Effects:** font-size: clamp(2.8rem 8vw 6rem), letter-spacing: -0.03em, soft glow accents, fine grid background
+**Key Effects:** font-size: clamp(2.8rem 8vw 6rem), letter-spacing: -0.03em, subtle gold glow, fine grid background
 
 ### Page Pattern
 

@@ -56,7 +56,7 @@ export default function HubPage({ params }: { params: { hub: Hub } }) {
           { label: getHubLabel(hub) }
         ]}
       />
-      <section className="reveal rounded-3xl border border-line/70 bg-white/70 p-8 backdrop-blur">
+      <section className="reveal rounded-3xl border border-line/70 bg-panel/70 p-8 backdrop-blur">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted/70">
           Clawbot / Hub
         </p>
@@ -79,7 +79,7 @@ export default function HubPage({ params }: { params: { hub: Hub } }) {
         ))}
       </section>
 
-      <section className="rounded-3xl border border-line/70 bg-white/70 p-6 backdrop-blur">
+      <section className="rounded-3xl border border-line/70 bg-panel/70 p-6 backdrop-blur">
         <h2 className="text-lg font-semibold text-ink">相关链接</h2>
         <div className="mt-4 flex flex-wrap gap-3">
           {relatedLinks.length === 0 ? (
@@ -89,7 +89,7 @@ export default function HubPage({ params }: { params: { hub: Hub } }) {
               <Link
                 key={link.href}
                 href={link.href}
-                className="cursor-pointer rounded-full border border-line/70 bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-muted transition-colors hover:border-ink/20 hover:text-ink"
+                className="cursor-pointer rounded-full border border-line/70 bg-panel/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-muted transition-colors hover:border-ink/20 hover:text-ink"
               >
                 {link.label}
               </Link>
