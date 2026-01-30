@@ -12,14 +12,14 @@ export default function HomePage() {
         <div className="orb absolute -right-12 -top-16 h-48 w-48 rounded-full bg-accent/20 blur-3xl" />
         <div className="absolute -bottom-24 left-16 h-40 w-40 rounded-full bg-ink/10 blur-3xl" />
         <p className="text-xs font-semibold uppercase tracking-[0.4em] text-muted/70">
-          Clawbot / Personal AI Ecosystem
+          Openclaw / Moltbot / Clawdbot
         </p>
         <h1 className="mt-4 text-4xl font-semibold text-ink sm:text-5xl lg:text-6xl">
-          为个人 AI 助手构建可扩展生态
+          Openclaw 个人 AI 助手生态
         </h1>
         <p className="mt-4 max-w-2xl text-base text-muted">
-          统一安装接入、Skills 能力、自动化流程与安全治理。让每个助手拥有可控边界，
-          在真实场景中持续进化。
+          Openclaw（又称 Moltbot / Clawdbot）提供统一安装接入、Skills 能力、
+          自动化流程与安全治理。让每个助手拥有可控边界，在真实场景中持续进化。
         </p>
         <div className="mt-8 flex flex-wrap gap-4">
           <Link
@@ -57,6 +57,29 @@ export default function HomePage() {
               <p className="text-sm font-semibold text-ink">{item.title}</p>
               <p className="mt-2 text-sm text-muted">{item.desc}</p>
             </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="reveal reveal-delay-1 rounded-3xl border border-line/70 bg-white/70 p-8 backdrop-blur">
+        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted/70">
+          品牌说明
+        </p>
+        <h2 className="mt-4 text-2xl font-semibold text-ink">
+          Openclaw（Moltbot / Clawdbot）
+        </h2>
+        <p className="mt-3 max-w-3xl text-sm text-muted">
+          Openclaw、Moltbot、Clawdbot 是同一套个人 AI 助手生态的不同称呼。
+          我们统一提供安装接入、Skills 能力、自动化与安全治理，使个人助手具备可扩展与可控的边界。
+        </p>
+        <div className="mt-5 flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-muted">
+          {['openclaw', 'moltbot', 'clawdbot'].map((label) => (
+            <span
+              key={label}
+              className="rounded-full border border-line/70 bg-white/80 px-3 py-1"
+            >
+              {label}
+            </span>
           ))}
         </div>
       </section>

@@ -1,6 +1,8 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { DM_Sans, Space_Grotesk } from 'next/font/google';
+import { BRAND_KEYWORDS } from '@/lib/seo';
+import { SITE_URL } from '@/lib/site';
 
 const bodyFont = DM_Sans({
   subsets: ['latin'],
@@ -17,12 +19,29 @@ const displayFont = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Clawbot - 个人 AI 助手生态',
-    template: '%s | Clawbot'
+    default: 'Openclaw / Moltbot / Clawdbot - 个人 AI 助手生态',
+    template: '%s | Openclaw'
   },
   description:
-    'Clawbot 个人 AI 助手生态网站：统一接入、Skills 生态、自动化与安全最佳实践。'
+    'Openclaw（Moltbot / Clawdbot）个人 AI 助手生态网站：统一接入、Skills 生态、自动化与安全最佳实践。',
+  keywords: BRAND_KEYWORDS,
+  openGraph: {
+    title: 'Openclaw / Moltbot / Clawdbot - 个人 AI 助手生态',
+    description:
+      'Openclaw（Moltbot / Clawdbot）个人 AI 助手生态网站：统一接入、Skills 生态、自动化与安全最佳实践。',
+    url: SITE_URL,
+    siteName: 'Openclaw',
+    locale: 'zh_CN',
+    type: 'website'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Openclaw / Moltbot / Clawdbot - 个人 AI 助手生态',
+    description:
+      'Openclaw（Moltbot / Clawdbot）个人 AI 助手生态网站：统一接入、Skills 生态、自动化与安全最佳实践。'
+  }
 };
 
 export default function RootLayout({

@@ -10,6 +10,8 @@ import {
   HUBS,
   type Hub
 } from '@/lib/content';
+import { mergeKeywords } from '@/lib/seo';
+import { SITE_URL } from '@/lib/site';
 
 export function generateStaticParams() {
   return getAllPostSlugs().map((entry) => ({
@@ -26,9 +28,22 @@ export function generateMetadata({
   if (!HUBS.includes(params.hub)) return {};
   const post = getPostBySlug(params.hub, params.slug);
   if (!post) return {};
+  const url = `${SITE_URL}${post.url}`;
   return {
     title: post.title,
-    description: post.description
+    description: post.description,
+    keywords: mergeKeywords([post.title, ...post.tags, params.hub]),
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      url,
+      type: 'article'
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.description
+    }
   };
 }
 

@@ -5,6 +5,8 @@ import PostCard from '../_components/PostCard';
 import { getHubLabel } from '@/lib/links';
 import { getHubMeta, getPostsByHub, HUBS, type Hub } from '@/lib/content';
 import Link from 'next/link';
+import { mergeKeywords } from '@/lib/seo';
+import { SITE_URL } from '@/lib/site';
 
 export function generateStaticParams() {
   return HUBS.map((hub) => ({ hub }));
@@ -17,9 +19,22 @@ export function generateMetadata({
 }): Metadata {
   if (!HUBS.includes(params.hub)) return {};
   const meta = getHubMeta(params.hub);
+  const url = `${SITE_URL}/${params.hub}`;
   return {
     title: meta.title,
-    description: meta.description
+    description: meta.description,
+    keywords: mergeKeywords([meta.title, meta.description, params.hub]),
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      url,
+      type: 'website'
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: meta.title,
+      description: meta.description
+    }
   };
 }
 

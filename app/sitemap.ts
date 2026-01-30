@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 1
     },
-    ...HUBS.map((hub) => {
+    ...HUBS.map<MetadataRoute.Sitemap[number]>((hub) => {
       const meta = getHubMeta(hub);
       return {
         url: `${SITE_URL}/${hub}`,
@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   ];
 
-  const postRoutes: MetadataRoute.Sitemap = getAllPosts().map((post) => ({
+  const postRoutes: MetadataRoute.Sitemap = getAllPosts().map<MetadataRoute.Sitemap[number]>((post) => ({
     url: `${SITE_URL}${post.url}`,
     lastModified: post.date ? new Date(post.date) : undefined,
     changeFrequency: 'monthly',
