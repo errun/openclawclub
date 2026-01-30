@@ -1,0 +1,20 @@
+---
+title: API Key 安全避坑
+description: 避免泄露 API Key 的最小安全清单。
+date: 2026-01-27
+tags:
+  - pitfalls
+  - security
+  - api-key
+---
+
+## 高风险场景
+
+- 日志中打印密钥
+- 公开仓库上传配置
+
+## 建议做法
+
+1. 使用环境变量管理密钥
+2. 在 CI 中注入密钥
+3. 定期轮换并审计权限

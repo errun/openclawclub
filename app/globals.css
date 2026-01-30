@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-gradient-to-br from-white via-mist to-slate-100 text-ink antialiased;
+}
+
+.prose :where(a) {
+  @apply text-accent no-underline hover:underline;
+}
+
+.prose :where(code):not(:where([class~="not-prose"] *)) {
+  @apply rounded bg-slate-100 px-1 py-0.5 text-sm text-slate-800;
+}
