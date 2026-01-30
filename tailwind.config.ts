@@ -16,7 +16,7 @@ const config: Config = {
         primary: '#0B0F16',
         muted: '#3B4151',
         accent: '#0EA5E9',
-        background: '#E6ECF6',
+        background: '#DEE6F2',
         line: '#E5E7EB',
         panel: '#FFFFFF'
       }
