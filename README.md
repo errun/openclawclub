@@ -1,5 +1,7 @@
 # OpenClawClub 内容站（Next.js + MDX）
 
+网站域名：`openclawclue.net`
+
 ## 本地启动
 
 ```bash
@@ -25,7 +27,7 @@ npm run start
 
 ## 内容结构
 
-新增 `.mdx` 文件即可生成页面：
+新增 `.mdx` 文件即可生成页面（部署后域名为 `openclawclue.net`）：
 
 ```
 content/
