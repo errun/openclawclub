@@ -4,6 +4,14 @@ import Script from 'next/script';
 import { DM_Sans, Space_Grotesk } from 'next/font/google';
 import { BRAND_KEYWORDS } from '@/lib/seo';
 import { SITE_URL } from '@/lib/site';
+import { cookies } from 'next/headers';
+import {
+  DEFAULT_LOCALE,
+  LOCALE_HTML_LANG,
+  LOCALE_OG,
+  getStrings,
+  normalizeLocale
+} from '@/lib/i18n';
 
 const bodyFont = DM_Sans({
   subsets: ['latin'],
@@ -19,29 +27,28 @@ const displayFont = Space_Grotesk({
   variable: '--font-heading'
 });
 
+const defaultStrings = getStrings(DEFAULT_LOCALE);
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Openclaw / Moltbot / Clawdbot - Personal AI Assistant Ecosystem',
+    default: defaultStrings.siteTitle,
     template: '%s | Openclaw'
   },
-  description:
-    'Openclaw (Moltbot / Clawdbot) personal AI assistant ecosystem: unified access, Skills ecosystem, automation, and security best practices.',
+  description: defaultStrings.siteDescription,
   keywords: BRAND_KEYWORDS,
   openGraph: {
-    title: 'Openclaw / Moltbot / Clawdbot - Personal AI Assistant Ecosystem',
-    description:
-      'Openclaw (Moltbot / Clawdbot) personal AI assistant ecosystem: unified access, Skills ecosystem, automation, and security best practices.',
+    title: defaultStrings.siteTitle,
+    description: defaultStrings.siteDescription,
     url: SITE_URL,
     siteName: 'Openclaw',
-    locale: 'en_US',
+    locale: LOCALE_OG[DEFAULT_LOCALE],
     type: 'website'
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Openclaw / Moltbot / Clawdbot - Personal AI Assistant Ecosystem',
-    description:
-      'Openclaw (Moltbot / Clawdbot) personal AI assistant ecosystem: unified access, Skills ecosystem, automation, and security best practices.'
+    title: defaultStrings.siteTitle,
+    description: defaultStrings.siteDescription
   }
 };
 
@@ -50,9 +57,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const locale = normalizeLocale(cookies().get('locale')?.value);
+  const htmlLang = LOCALE_HTML_LANG[locale];
   return (
     <html
-      lang="en"
+      lang={htmlLang}
       className={`${bodyFont.variable} ${displayFont.variable}`}
     >
       <body className="font-body antialiased">

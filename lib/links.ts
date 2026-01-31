@@ -1,48 +1,74 @@
 import type { Hub } from './content';
+import { getStrings, type Locale, withLocale } from './i18n';
 
 export type RelatedLink = {
   href: string;
   label: string;
 };
 
-const hubLabels: Record<Hub, string> = {
-  install: 'Install',
-  skills: 'Skills',
-  pitfalls: 'Pitfalls'
-};
-
-export function getHubLabel(hub: Hub) {
-  return hubLabels[hub];
+export function getHubLabel(hub: Hub, locale: Locale) {
+  const t = getStrings(locale);
+  return t.hubs[hub];
 }
 
 export function getRelatedLinksForPost(
   hub: Hub,
-  slugParts: string[]
+  slugParts: string[],
+  locale: Locale
 ): RelatedLink[] {
+  const t = getStrings(locale);
+  const hubLabel = getHubLabel(hub, locale);
   const links: RelatedLink[] = [
     {
-      href: `/${hub}`,
-      label: `${hubLabels[hub]} hub home`
+      href: withLocale(locale, `/${hub}`),
+      label: t.links.hubHome.replace('{hub}', hubLabel)
     }
   ];
 
   if (hub === 'install' && slugParts[0] === 'errors') {
     links.push(
-      { href: '/install/windows', label: 'Windows install guide' },
-      { href: '/install/macos', label: 'macOS install guide' },
-      { href: '/install/linux', label: 'Linux install guide' },
-      { href: '/pitfalls/version-mismatch', label: 'Pitfall: version mismatch' },
-      { href: '/pitfalls/over-permissions', label: 'Pitfall: over-permissions' }
+      {
+        href: withLocale(locale, '/install/windows'),
+        label: t.links.windowsInstall
+      },
+      {
+        href: withLocale(locale, '/install/macos'),
+        label: t.links.macosInstall
+      },
+      {
+        href: withLocale(locale, '/install/linux'),
+        label: t.links.linuxInstall
+      },
+      {
+        href: withLocale(locale, '/pitfalls/version-mismatch'),
+        label: t.links.pitfallVersion
+      },
+      {
+        href: withLocale(locale, '/pitfalls/over-permissions'),
+        label: t.links.pitfallPermissions
+      }
     );
   } else if (hub === 'skills') {
     links.push(
-      { href: '/skills/getting-started', label: 'Skills quickstart' },
-      { href: '/skills/best-practices', label: 'Skills best practices' }
+      {
+        href: withLocale(locale, '/skills/getting-started'),
+        label: t.links.skillsQuickstart
+      },
+      {
+        href: withLocale(locale, '/skills/best-practices'),
+        label: t.links.skillsBestPractices
+      }
     );
   } else if (hub === 'pitfalls') {
     links.push(
-      { href: '/pitfalls/api-key-safety', label: 'API key safety' },
-      { href: '/pitfalls/performance', label: 'Performance pitfalls' }
+      {
+        href: withLocale(locale, '/pitfalls/api-key-safety'),
+        label: t.links.apiKeySafety
+      },
+      {
+        href: withLocale(locale, '/pitfalls/performance'),
+        label: t.links.performancePitfalls
+      }
     );
   }
 

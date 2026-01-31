@@ -1,23 +1,33 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import HubPageView from '../_components/HubPage';
+import HubPage from '../../../(site)/_components/HubPage';
 import { getHubMeta, HUBS, type Hub } from '@/lib/content';
 import { mergeKeywords } from '@/lib/seo';
 import { SITE_URL } from '@/lib/site';
-import { DEFAULT_LOCALE, LOCALE_OG } from '@/lib/i18n';
+import {
+  LOCALE_OG,
+  ROUTED_LOCALES,
+  isLocale,
+  normalizeLocale,
+  withLocale
+} from '@/lib/i18n';
 
 export function generateStaticParams() {
-  return HUBS.map((hub) => ({ hub }));
+  return ROUTED_LOCALES.flatMap((lang) =>
+    HUBS.map((hub) => ({ lang, hub }))
+  );
 }
 
 export function generateMetadata({
   params
 }: {
-  params: { hub: Hub };
+  params: { lang: string; hub: Hub };
 }): Metadata {
+  if (!isLocale(params.lang)) return {};
   if (!HUBS.includes(params.hub)) return {};
-  const meta = getHubMeta(params.hub, DEFAULT_LOCALE);
-  const url = `${SITE_URL}/${params.hub}`;
+  const locale = normalizeLocale(params.lang);
+  const meta = getHubMeta(params.hub, locale);
+  const url = `${SITE_URL}${withLocale(locale, `/${params.hub}`)}`;
   return {
     title: meta.title,
     description: meta.description,
@@ -26,7 +36,7 @@ export function generateMetadata({
       title: meta.title,
       description: meta.description,
       url,
-      locale: LOCALE_OG[DEFAULT_LOCALE],
+      locale: LOCALE_OG[locale],
       type: 'website'
     },
     twitter: {
@@ -37,7 +47,12 @@ export function generateMetadata({
   };
 }
 
-export default function Page({ params }: { params: { hub: Hub } }) {
+export default function Page({
+  params
+}: {
+  params: { lang: string; hub: Hub };
+}) {
+  if (!isLocale(params.lang)) notFound();
   if (!HUBS.includes(params.hub)) notFound();
-  return <HubPageView hub={params.hub} locale={DEFAULT_LOCALE} />;
+  return <HubPage hub={params.hub} locale={params.lang} />;
 }

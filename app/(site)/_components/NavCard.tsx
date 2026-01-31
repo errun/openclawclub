@@ -3,11 +3,13 @@ import Link from 'next/link';
 export default function NavCard({
   href,
   title,
-  description
+  description,
+  ctaLabel = 'Explore'
 }: {
   href: string;
   title: string;
   description: string;
+  ctaLabel?: string;
 }) {
   return (
     <Link
@@ -19,7 +21,7 @@ export default function NavCard({
         <p className="text-sm text-muted">{description}</p>
       </div>
       <span className="mt-6 text-xs font-semibold uppercase tracking-[0.3em] text-accent">
-        Explore
+        {ctaLabel}
       </span>
     </Link>
   );
