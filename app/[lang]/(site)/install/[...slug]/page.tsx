@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import PostPage from '../../../../(site)/_components/PostPage';
-import { getAllPostSlugs, getPostBySlug, HUBS, type Hub } from '@/lib/content';
+import PostPage from '../../../(site)/_components/PostPage';
+import { getPostBySlug, getPostsByHub } from '@/lib/content';
 import { mergeKeywords } from '@/lib/seo';
 import { SITE_URL } from '@/lib/site';
 import {
@@ -12,12 +12,13 @@ import {
   withLocale
 } from '@/lib/i18n';
 
+const HUB = 'install' as const;
+
 export function generateStaticParams() {
   return ROUTED_LOCALES.flatMap((lang) =>
-    getAllPostSlugs(lang).map((entry) => ({
+    getPostsByHub(HUB, lang).map((post) => ({
       lang,
-      hub: entry.hub,
-      slug: entry.slug
+      slug: post.slug
     }))
   );
 }
@@ -25,18 +26,17 @@ export function generateStaticParams() {
 export function generateMetadata({
   params
 }: {
-  params: { lang: string; hub: Hub; slug: string[] };
+  params: { lang: string; slug: string[] };
 }): Metadata {
   if (!isLocale(params.lang)) return {};
-  if (!HUBS.includes(params.hub)) return {};
   const locale = normalizeLocale(params.lang);
-  const post = getPostBySlug(params.hub, params.slug, locale);
+  const post = getPostBySlug(HUB, params.slug, locale);
   if (!post) return {};
   const url = `${SITE_URL}${withLocale(locale, post.url)}`;
   return {
     title: post.title,
     description: post.description,
-    keywords: mergeKeywords([post.title, ...post.tags, params.hub]),
+    keywords: mergeKeywords([post.title, ...post.tags, HUB]),
     openGraph: {
       title: post.title,
       description: post.description,
@@ -55,9 +55,8 @@ export function generateMetadata({
 export default function Page({
   params
 }: {
-  params: { lang: string; hub: Hub; slug: string[] };
+  params: { lang: string; slug: string[] };
 }) {
   if (!isLocale(params.lang)) notFound();
-  if (!HUBS.includes(params.hub)) notFound();
-  return <PostPage hub={params.hub} slug={params.slug} locale={params.lang} />;
+  return <PostPage hub={HUB} slug={params.slug} locale={params.lang} />;
 }

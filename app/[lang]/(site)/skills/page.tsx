@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import HubPage from '../../../(site)/_components/HubPage';
-import { getHubMeta, HUBS, type Hub } from '@/lib/content';
+import HubPage from '../../(site)/_components/HubPage';
+import { getHubMeta } from '@/lib/content';
 import { mergeKeywords } from '@/lib/seo';
 import { SITE_URL } from '@/lib/site';
 import {
@@ -12,26 +12,25 @@ import {
   withLocale
 } from '@/lib/i18n';
 
+const HUB = 'skills' as const;
+
 export function generateStaticParams() {
-  return ROUTED_LOCALES.flatMap((lang) =>
-    HUBS.map((hub) => ({ lang, hub }))
-  );
+  return ROUTED_LOCALES.map((lang) => ({ lang }));
 }
 
 export function generateMetadata({
   params
 }: {
-  params: { lang: string; hub: Hub };
+  params: { lang: string };
 }): Metadata {
   if (!isLocale(params.lang)) return {};
-  if (!HUBS.includes(params.hub)) return {};
   const locale = normalizeLocale(params.lang);
-  const meta = getHubMeta(params.hub, locale);
-  const url = `${SITE_URL}${withLocale(locale, `/${params.hub}`)}`;
+  const meta = getHubMeta(HUB, locale);
+  const url = `${SITE_URL}${withLocale(locale, `/${HUB}`)}`;
   return {
     title: meta.title,
     description: meta.description,
-    keywords: mergeKeywords([meta.title, meta.description, params.hub]),
+    keywords: mergeKeywords([meta.title, meta.description, HUB]),
     openGraph: {
       title: meta.title,
       description: meta.description,
@@ -47,12 +46,7 @@ export function generateMetadata({
   };
 }
 
-export default function Page({
-  params
-}: {
-  params: { lang: string; hub: Hub };
-}) {
+export default function Page({ params }: { params: { lang: string } }) {
   if (!isLocale(params.lang)) notFound();
-  if (!HUBS.includes(params.hub)) notFound();
-  return <HubPage hub={params.hub} locale={params.lang} />;
+  return <HubPage hub={HUB} locale={params.lang} />;
 }
