@@ -22,26 +22,26 @@ const displayFont = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Openclaw / Moltbot / Clawdbot - 个人 AI 助手生态',
+    default: 'Openclaw / Moltbot / Clawdbot - Personal AI Assistant Ecosystem',
     template: '%s | Openclaw'
   },
   description:
-    'Openclaw（Moltbot / Clawdbot）个人 AI 助手生态网站：统一接入、Skills 生态、自动化与安全最佳实践。',
+    'Openclaw (Moltbot / Clawdbot) personal AI assistant ecosystem: unified access, Skills ecosystem, automation, and security best practices.',
   keywords: BRAND_KEYWORDS,
   openGraph: {
-    title: 'Openclaw / Moltbot / Clawdbot - 个人 AI 助手生态',
+    title: 'Openclaw / Moltbot / Clawdbot - Personal AI Assistant Ecosystem',
     description:
-      'Openclaw（Moltbot / Clawdbot）个人 AI 助手生态网站：统一接入、Skills 生态、自动化与安全最佳实践。',
+      'Openclaw (Moltbot / Clawdbot) personal AI assistant ecosystem: unified access, Skills ecosystem, automation, and security best practices.',
     url: SITE_URL,
     siteName: 'Openclaw',
-    locale: 'zh_CN',
+    locale: 'en_US',
     type: 'website'
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Openclaw / Moltbot / Clawdbot - 个人 AI 助手生态',
+    title: 'Openclaw / Moltbot / Clawdbot - Personal AI Assistant Ecosystem',
     description:
-      'Openclaw（Moltbot / Clawdbot）个人 AI 助手生态网站：统一接入、Skills 生态、自动化与安全最佳实践。'
+      'Openclaw (Moltbot / Clawdbot) personal AI assistant ecosystem: unified access, Skills ecosystem, automation, and security best practices.'
   }
 };
 
@@ -52,7 +52,7 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="zh-Hans"
+      lang="en"
       className={`${bodyFont.variable} ${displayFont.variable}`}
     >
       <body className="font-body antialiased">

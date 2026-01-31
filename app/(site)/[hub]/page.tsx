@@ -80,10 +80,10 @@ export default function HubPage({ params }: { params: { hub: Hub } }) {
       </section>
 
       <section className="rounded-3xl border border-line/70 bg-panel/70 p-6 backdrop-blur">
-        <h2 className="text-lg font-semibold text-ink">相关链接</h2>
+        <h2 className="text-lg font-semibold text-ink">Related links</h2>
         <div className="mt-4 flex flex-wrap gap-3">
           {relatedLinks.length === 0 ? (
-            <span className="text-sm text-muted">暂无相关内容</span>
+            <span className="text-sm text-muted">No related content yet.</span>
           ) : (
             relatedLinks.map((link) => (
               <Link

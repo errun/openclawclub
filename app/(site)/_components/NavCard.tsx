@@ -19,7 +19,7 @@ export default function NavCard({
         <p className="text-sm text-muted">{description}</p>
       </div>
       <span className="mt-6 text-xs font-semibold uppercase tracking-[0.3em] text-accent">
-        进入
+        Explore
       </span>
     </Link>
   );

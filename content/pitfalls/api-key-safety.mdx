@@ -1,23 +1,22 @@
 ---
-title: API Key 安全避坑
-description: 避免泄露 API Key 的最小安全清单。
-date: 2026-01-27
+title: API Key Safety Pitfalls
+description: A minimum checklist to avoid API key leakage.
+date: 2026-01-05
 tags:
   - pitfalls
   - security
-  - api-key
+  - secrets
 ---
 
-本文面向 Openclaw（Moltbot / Clawdbot）安全与治理场景，提供避坑与核对要点。
+This guide targets Openclaw (Moltbot / Clawdbot) safety and governance.
 
-## 高风险场景
+## High-risk scenarios
 
-- 日志中打印密钥
-- 公开仓库上传配置
+- Logging secrets in plaintext
+- Committing configs to public repos
 
-## 建议做法
+## Recommended practices
 
-1. 使用环境变量管理密钥
-2. 在 CI 中注入密钥
-3. 定期轮换并审计权限
-
+1. Store secrets in environment variables
+2. Inject secrets in CI
+3. Rotate and audit access regularly

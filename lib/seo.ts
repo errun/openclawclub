@@ -3,10 +3,11 @@ const DEFAULT_KEYWORDS = [
   'moltbot',
   'clawdbot',
   'Clawbot',
-  '个人 AI 助手',
-  'AI 助手生态',
-  'Skills 生态',
-  '自动化'
+  'personal AI assistant',
+  'AI assistant ecosystem',
+  'skills ecosystem',
+  'automation',
+  'security governance'
 ];
 
 export const BRAND_KEYWORDS = DEFAULT_KEYWORDS;

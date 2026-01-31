@@ -22,27 +22,27 @@ export function getRelatedLinksForPost(
   const links: RelatedLink[] = [
     {
       href: `/${hub}`,
-      label: `${hubLabels[hub]} 栏目首页`
+      label: `${hubLabels[hub]} hub home`
     }
   ];
 
   if (hub === 'install' && slugParts[0] === 'errors') {
     links.push(
-      { href: '/install/windows', label: 'Windows 安装指南' },
-      { href: '/install/macos', label: 'macOS 安装指南' },
-      { href: '/install/linux', label: 'Linux 安装指南' },
-      { href: '/pitfalls/version-mismatch', label: '避坑：版本不匹配' },
-      { href: '/pitfalls/over-permissions', label: '避坑：权限过大' }
+      { href: '/install/windows', label: 'Windows install guide' },
+      { href: '/install/macos', label: 'macOS install guide' },
+      { href: '/install/linux', label: 'Linux install guide' },
+      { href: '/pitfalls/version-mismatch', label: 'Pitfall: version mismatch' },
+      { href: '/pitfalls/over-permissions', label: 'Pitfall: over-permissions' }
     );
   } else if (hub === 'skills') {
     links.push(
-      { href: '/skills/getting-started', label: 'Skills 快速上手' },
-      { href: '/skills/best-practices', label: 'Skills 最佳实践' }
+      { href: '/skills/getting-started', label: 'Skills quickstart' },
+      { href: '/skills/best-practices', label: 'Skills best practices' }
     );
   } else if (hub === 'pitfalls') {
     links.push(
-      { href: '/pitfalls/api-key-safety', label: 'API Key 安全' },
-      { href: '/pitfalls/performance', label: '性能避坑' }
+      { href: '/pitfalls/api-key-safety', label: 'API key safety' },
+      { href: '/pitfalls/performance', label: 'Performance pitfalls' }
     );
   }
 

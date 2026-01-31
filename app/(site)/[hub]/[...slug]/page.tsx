@@ -82,7 +82,7 @@ export default function PostPage({
       </article>
 
       <section className="rounded-3xl border border-line/70 bg-panel/70 p-6 backdrop-blur">
-        <h2 className="text-lg font-semibold text-ink">相关链接</h2>
+        <h2 className="text-lg font-semibold text-ink">Related links</h2>
         <div className="mt-4 flex flex-wrap gap-3">
           {relatedLinks.map((link) => (
             <Link
