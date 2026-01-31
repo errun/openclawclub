@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import PostPage from '../../../(site)/_components/PostPage';
+import PostPage from '@/app/(site)/_components/PostPage';
 import { getPostBySlug, getPostsByHub } from '@/lib/content';
 import { mergeKeywords } from '@/lib/seo';
 import { SITE_URL } from '@/lib/site';

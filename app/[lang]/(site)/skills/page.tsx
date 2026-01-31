@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import HubPage from '../../(site)/_components/HubPage';
+import HubPage from '@/app/(site)/_components/HubPage';
 import { getHubMeta } from '@/lib/content';
 import { mergeKeywords } from '@/lib/seo';
 import { SITE_URL } from '@/lib/site';
