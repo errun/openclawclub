@@ -1,0 +1,121 @@
+---
+title: "OpenClaw 免费 Token 指南：Healer Alpha 与 Hunter Alpha"
+description: 面向 OpenClaw 工作流的结构化指南，介绍如何用 OpenRouter 免费 Token 使用 Healer Alpha 和 Hunter Alpha。
+date: 2026-03-18
+tags:
+  - skills
+  - free-token
+  - openrouter
+  - healer-alpha
+  - hunter-alpha
+---
+
+这页基于 `content/freetoken_en.md` 原稿整理而成，适合想在 OpenClaw 里测试免费 Token 模型工作流的用户快速上手。
+
+## 为什么这两个模型值得关注
+
+原稿里把 Hunter Alpha 和 Healer Alpha 描述成 OpenRouter 上很有价值的一组免费组合。两个模型都使用 `openrouter/` 前缀，并且在免费阶段里输入和输出都可以做到零成本。
+
+- 免费阶段价格据称为输入 `0 / 1M`、输出 `0 / 1M`
+- Hunter Alpha 更偏长上下文规划与推理
+- Healer Alpha 更偏多模态执行，支持图像和音频
+- 两者天然适合 OpenClaw 里的分工式 Agent 结构
+
+## Hunter Alpha
+
+Hunter Alpha 是这组组合里更偏规划和推理的一侧。
+
+### 关键规格
+
+- 参数规模：据称 `1T`
+- 上下文窗口：`1,048,576` tokens
+- 最大输出：`32K`
+- 速度：约 `38 tokens/s`
+- 延迟：约 `1.57s`
+
+### 适合场景
+
+- 大项目规划
+- 长上下文推理
+- 超大 PDF 或文档分析
+- 复杂代码库重构
+- OpenClaw 中的多步骤 Agent 工作流
+
+### 简短结论
+
+当你希望 OpenClaw 在真正执行之前，先在超大上下文里完成推理和规划时，Hunter Alpha 更合适。
+
+## Healer Alpha
+
+Healer Alpha 是这组组合里更偏执行的多模态模型。
+
+### 关键规格
+
+- 上下文窗口：`262,144` tokens
+- 最大输出：`32K`
+- 速度：约 `24 tokens/s`
+- 延迟：约 `1.40s`
+
+### 输入支持
+
+- 图像，通过 `image_url`
+- 音频，通过 `WAV`
+- 视频，通过 `video_url`
+- 文本
+
+### 适合场景
+
+- 截图与图像分析
+- 音频转写与摘要
+- 跨模态推理
+- 真实世界里的多模态 Agent 任务
+
+### 简短结论
+
+当 OpenClaw 不只是处理文本，还需要看图、听音频并完成多模态执行时，Healer Alpha 更合适。
+
+## 最适合 OpenClaw 的分工
+
+- 用 `Hunter Alpha` 充当规划大脑
+- 用 `Healer Alpha` 充当多模态执行器
+
+这种分工能让 OpenClaw 在深度推理和真实世界感知之间形成更清晰的角色划分。
+
+## 如何开始使用
+
+1. 打开 `https://openrouter.ai`
+2. 用邮箱或 Google 注册
+3. 可选：在控制台创建 API Key
+4. 直接在 `https://openrouter.ai/chat` 使用，或者在 OpenClaw 内部接入模型
+
+## 模型 ID
+
+- `openrouter/hunter-alpha`
+- `openrouter/healer-alpha`
+
+## Python 示例
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://openrouter.ai/api/v1",
+    api_key="your_free_key"
+)
+
+response = client.chat.completions.create(
+    model="openrouter/hunter-alpha",
+    messages=[{"role": "user", "content": "Your massive task..."}]
+)
+```
+
+## OpenClaw 提示
+
+原稿提到 OpenClaw v13 已经在安装器里内置了 Hunter Alpha 和 Healer Alpha 的选项，所以在兼容环境下，你可能连模型 ID 都不用手动输入。
+
+## 直达链接
+
+- Hunter Alpha: `https://openrouter.ai/openrouter/hunter-alpha`
+- Healer Alpha: `https://openrouter.ai/openrouter/healer-alpha`
+- OpenRouter Chat: `https://openrouter.ai/chat`
+- OpenClaw: `https://openclaw.ai`

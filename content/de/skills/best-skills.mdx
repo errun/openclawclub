@@ -1,0 +1,65 @@
+---
+title: Best Skills Ranking und Installationsguide
+description: Eine kuratierte Auswahl neuer Trend-Skills, langfristiger Favoriten und sinnvoller Installationskandidaten.
+date: 2026-03-18
+tags:
+  - skills
+  - ranking
+  - recommendations
+  - security
+---
+
+Diese Seite fasst die aktuelle Best-Skills-Auswahl in einer schnelleren Entscheidungsansicht zusammen. Mit den Tabs wechselst du direkt zwischen Monatsfavoriten, Wochengewinnern und den stärksten Allround-Empfehlungen.
+
+<Tabs defaultValue="month">
+<Tab value="month" label="Monthly Best">
+
+<div className="not-prose mt-6 space-y-5">
+  <SkillCard title="Veryfi" summary="Ein OCR-Skill mit Fokus auf Finanz-Workflows, der Belege, Rechnungen, PDFs und Chat-Screenshots in strukturierte Ausgabendaten verwandelt." installCommand="clawhub install veryfi" badges={['OCR', 'Finanzen', 'Neu']} details={[{ label: 'Start', value: '2. März' }, { label: 'Warum er auffällt', value: 'Extrahiert Betrag, Steuer-ID, Datum und Händlerdaten sehr schnell und eignet sich dadurch stark für Buchhaltung und Erstattungen.' }]} />
+  <SkillCard title="Larry" summary="Eine AI TikTok Growth Engine, die Creator von der Skripterstellung bis zur Veröffentlichung und Wachstumssteuerung begleitet." installCommand="clawhub install larry" badges={['Video', 'Growth', 'Creator']} details={[{ label: 'Startfenster', value: 'Etwa 8. bis 10. März' }, { label: 'Warum er auffällt', value: 'Verbindet Skripte, Untertitel, Videogenerierung, Uploads und Distributionsstrategie in einem durchgehenden Flow.' }]} />
+  <SkillCard title="Skill Vetter" summary="Ein Sicherheits-Audit-Skill, der idealerweise vor nahezu jeder Installation eines Drittanbieter-Skills eingesetzt werden sollte." installCommand="clawhub install skill-vetter" badges={['Sicherheit', 'Audit', 'Pflicht']} details={[{ label: 'Startfenster', value: '25. Februar bis Anfang März' }, { label: 'Warum er auffällt', value: 'Prüft Code, Berechtigungen, riskante URLs, eval- oder exec-Nutzung und verdächtige Dateizugriffe.' }]} />
+  <SkillCard title="Nut Studio macOS Series" summary="Eine macOS-orientierte Skill-Reihe für schnellere lokale Ausführung und geringeren Stromverbrauch bei dauerhaften Setups." installCommand="clawhub install nut-macos-xxx" badges={['macOS', 'Lokal', 'Performance']} details={[{ label: 'Start', value: '14. März' }, { label: 'Warum er auffällt', value: 'Richtet sich an Nutzer mit lang laufenden lokalen Workflows und klarer Optimierungsrichtung auf macOS-Hardware.' }]} />
+  <SkillCard title="Felo Search / SuperAgent" summary="Ein Live-Search- und Content-Output-Stack, der frische Recherche mit direkt nutzbaren Präsentationsformaten kombiniert." installCommand="clawhub install felo-search" badges={['Search', 'Research', 'Slides']} details={[{ label: 'Aufmerksamkeitsschub', value: 'Starke Empfehlung am 17. März' }, { label: 'Warum er auffällt', value: 'Besonders nützlich, wenn Aktualität wichtig ist und Rechercheergebnisse direkt in Präsentationen oder Berichte fließen sollen.' }]} />
+</div>
+
+</Tab>
+
+<Tab value="week" label="Weekly Best">
+
+<div className="not-prose mt-6 space-y-5">
+  <SkillCard title="Larry" summary="Einer der stärksten Breakout-Skills dieser Woche für Short-Form-Content und automatisiertes Publishing." installCommand="clawhub install larry" badges={['Hot', 'TikTok', 'Automation']} details={[{ label: 'Wochensignal', value: 'Einer der meistdiskutierten Launches dieser Woche' }, { label: 'Kernnutzen', value: 'Automatisiert Videos, Skripte, Untertitel und Veröffentlichung und passt gut zu outputstarken Creator-Workflows.' }]} />
+  <SkillCard title="Veryfi" summary="Ein stark wachsender Utility-Skill für Finanz- und Office-Workflows mit chaotischen Dateien und klaren Datenausgaben." installCommand="clawhub install veryfi" badges={['Finanzen', 'Office', 'Momentum']} details={[{ label: 'Wochensignal', value: 'Deutlich stärker in Erstattungs- und Buchhaltungs-Workflows genutzt' }, { label: 'Kernnutzen', value: 'Wandelt Fotos und PDFs in strukturierte Buchhaltungsdaten um und spart dadurch viel manuelle Nacharbeit.' }]} />
+  <SkillCard title="Felo Search" summary="Eine Live-Search-Option, die mehr Aufmerksamkeit von Nutzern bekommt, die frischere Antworten und schnellere Recherche-Aufbereitung wollen." installCommand="clawhub install felo-search" badges={['Search', 'Research', 'Momentum']} details={[{ label: 'Wochensignal', value: 'Steigende Diskussionen unter Live-Search-Skills' }, { label: 'Kernnutzen', value: 'Verbindet Web-Recherche mit PPT-Erstellung und eignet sich gut für Research-Synthesen und kundenreife Ausgaben.' }]} />
+  <SkillCard title="Parliament-Claw" summary="Ein frisch gestarteter kollaborativer Skill mit Fokus auf Leaderboards und Mehrbenutzer-Beteiligung." installCommand="clawhub install parliament-claw" badges={['Neu', 'Collaboration', 'Leaderboard']} details={[{ label: 'Status', value: 'Gerade erst gestartet' }, { label: 'Kernnutzen', value: 'Passt zu Nutzern, die kollaborative AI-Experimente, Scoring und parallele Modellvergleiche ausprobieren möchten.' }]} />
+</div>
+
+</Tab>
+
+<Tab value="overall" label="Best Overall">
+
+<div className="not-prose mt-6 space-y-5">
+  <SkillCard title="skill-vetter" summary="Die stärkste Standardempfehlung, weil dieser Skill den restlichen Installationsprozess absichert." installCommand="clawhub install skill-vetter" badges={['#1', 'Sicherheit', 'Basis']} details={[{ label: 'Warum so hoch', value: 'Sollte der erste Stopp sein, bevor Drittanbieter-Skills installiert werden.' }, { label: 'Kernrolle', value: 'Prüft Code, Berechtigungsumfang und Ausführungsmuster, damit riskante Skills frühzeitig aussortiert werden können.' }]} />
+  <SkillCard title="self-improving-agent / capability-evolver" summary="Ein langfristig wertvoller Produktivitäts-Skill, der den Assistenten mit der Zeit persönlicher und nützlicher macht." installCommand="clawhub install self-improving-agent" badges={['Lernen', 'Memory', 'Adaptation']} details={[{ label: 'Warum so hoch', value: 'Der Wert steigt mit jeder Nutzung, weil Fehler, Vorlieben und Muster mitgelernt werden.' }, { label: 'Kernrolle', value: 'Hilft OpenClaw dabei, sich in Richtung eines stärker personalisierten Arbeitsassistenten zu entwickeln.' }]} />
+  <SkillCard title="gog" summary="Eine sehr praktische Google-Workspace-Integration, die den Assistenten direkt an alltägliche Office-Workflows anschließt." installCommand="clawhub install gog" badges={['Workspace', 'Office', 'Integration']} details={[{ label: 'Warum so hoch', value: 'Bringt Gmail, Kalender, Drive, Docs und Sheets in einen gemeinsamen Workflow.' }, { label: 'Kernrolle', value: 'Nützlich für E-Mail-Antworten, Terminplanung, Dokumentenbearbeitung und Büro-Automatisierung.' }]} />
+  <SkillCard title="agent-browser" summary="Eine Browser-Automationsbasis, die dem Assistenten praktische Handlungsfähigkeit auf echten Webseiten gibt." installCommand="clawhub install agent-browser" badges={['Browser', 'Automation', 'Execution']} details={[{ label: 'Warum so hoch', value: 'Viele Automationsaufgaben lassen sich ohne direkte Browserkontrolle nicht sauber umsetzen.' }, { label: 'Kernrolle', value: 'Unterstützt Formulare, Screenshots, Datenerfassung und Seiteninteraktionen für Research- und Operativ-Aufgaben.' }]} />
+  <SkillCard title="summarize" summary="Ein häufig genutzter Utility-Skill, der Webseiten, PDFs, YouTube-Videos und Notizen in schnelle Zusammenfassungen verwandelt." installCommand="clawhub install summarize" badges={['Summary', 'Research', 'High-frequency']} details={[{ label: 'Warum so hoch', value: 'Spart Lesezeit in nahezu jedem informationsintensiven Workflow.' }, { label: 'Kernrolle', value: 'Verwandelt große Mengen eingehender Informationen in einen schnelleren Syntheseprozess.' }]} />
+</div>
+
+<div className="not-prose mt-6 rounded-[26px] border border-line/70 bg-panel/70 p-5">
+  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-muted/70">
+    Zusätzliche Kandidaten
+  </p>
+  <ul className="mt-4 space-y-3 text-sm leading-7 text-muted">
+    <li><span className="font-semibold text-ink">github</span>: sinnvoll für PR-Erstellung, Code-Review, Issues und Repository-Operationen.</li>
+    <li><span className="font-semibold text-ink">tavily-search / Exa / Brave Search</span>: besser geeignet, wenn stärkere Live-Websuche gebraucht wird.</li>
+    <li><span className="font-semibold text-ink">notion / obsidian</span>: gut für persönliche Wissensbasen und stabilere RAG-artige Erinnerungssysteme.</li>
+  </ul>
+</div>
+
+</Tab>
+</Tabs>
+
+## Weiterstöbern
+
+- [Zur Startseite](../..)
+- [Zum Skills-Hub](..)

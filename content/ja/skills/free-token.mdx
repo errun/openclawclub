@@ -1,0 +1,121 @@
+---
+title: "OpenClaw Free Token ガイド：Healer Alpha と Hunter Alpha"
+description: OpenClaw ワークフロー内で Healer Alpha と Hunter Alpha を OpenRouter の無料 Token で使うための整理ガイドです。
+date: 2026-03-18
+tags:
+  - skills
+  - free-token
+  - openrouter
+  - healer-alpha
+  - hunter-alpha
+---
+
+このページは `content/freetoken_en.md` をもとに、OpenClaw で無料 Token モデルを試したいユーザー向けに再構成したものです。
+
+## なぜこの 2 モデルが重要なのか
+
+元のドラフトでは、Hunter Alpha と Healer Alpha は OpenRouter 上で非常に価値の高い無料ペアとして紹介されていました。どちらも `openrouter/` プレフィックスで提供され、入力・出力ともにゼロコスト期間があるとされています。
+
+- 無料期間中の価格は入力 `0 / 1M`、出力 `0 / 1M` とされている
+- Hunter Alpha は長文脈の計画と推論に強い
+- Healer Alpha は画像・音声対応のマルチモーダル実行に強い
+- 2 つを組み合わせると OpenClaw の Agent 構成と相性がよい
+
+## Hunter Alpha
+
+Hunter Alpha はこのペアの中で、より計画と推論を担当するモデルです。
+
+### 主要スペック
+
+- パラメータ規模: `1T` とされる
+- コンテキスト長: `1,048,576` tokens
+- 最大出力: `32K`
+- 速度: 約 `38 tokens/s`
+- レイテンシ: 約 `1.57s`
+
+### 向いている用途
+
+- 大規模プロジェクトの計画
+- 長文脈推論
+- 巨大 PDF やドキュメント解析
+- 複雑なコードベースのリファクタリング
+- OpenClaw 内でのマルチステップ Agent ワークフロー
+
+### ひとことで言うと
+
+OpenClaw に大きな文脈を渡したうえで、まず深く考えさせたいときは Hunter Alpha が適しています。
+
+## Healer Alpha
+
+Healer Alpha はこのペアの中で、より実行寄りのマルチモーダルモデルです。
+
+### 主要スペック
+
+- コンテキスト長: `262,144` tokens
+- 最大出力: `32K`
+- 速度: 約 `24 tokens/s`
+- レイテンシ: 約 `1.40s`
+
+### 入力対応
+
+- 画像 `image_url`
+- 音声 `WAV`
+- 動画 `video_url`
+- テキスト
+
+### 向いている用途
+
+- スクリーンショットや画像の解析
+- 音声の文字起こしと要約
+- クロスモーダル推論
+- 現実世界に近いマルチモーダル Agent タスク
+
+### ひとことで言うと
+
+OpenClaw がテキストだけでなく、見て、聞いて、複数の入力をまたいで動く必要があるなら Healer Alpha が向いています。
+
+## OpenClaw でのおすすめ分担
+
+- `Hunter Alpha` を計画担当の頭脳にする
+- `Healer Alpha` をマルチモーダル実行担当にする
+
+この分け方にすると、深い推論と現実世界の知覚タスクをきれいに分担できます。
+
+## 使い始める方法
+
+1. `https://openrouter.ai` を開く
+2. メールまたは Google で登録する
+3. 必要ならダッシュボードで API Key を作成する
+4. `https://openrouter.ai/chat` で直接使うか、OpenClaw に接続する
+
+## モデル ID
+
+- `openrouter/hunter-alpha`
+- `openrouter/healer-alpha`
+
+## Python サンプル
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://openrouter.ai/api/v1",
+    api_key="your_free_key"
+)
+
+response = client.chat.completions.create(
+    model="openrouter/hunter-alpha",
+    messages=[{"role": "user", "content": "Your massive task..."}]
+)
+```
+
+## OpenClaw メモ
+
+元ドラフトによると、OpenClaw v13 では Hunter Alpha と Healer Alpha がインストーラーの選択肢として組み込まれているため、環境によってはモデル ID を手動で入力しなくても使い始められます。
+
+## 直リンク
+
+- Hunter Alpha: `https://openrouter.ai/openrouter/hunter-alpha`
+- Healer Alpha: `https://openrouter.ai/openrouter/healer-alpha`
+- OpenRouter Chat: `https://openrouter.ai/chat`
+- OpenClaw: `https://openclaw.ai`

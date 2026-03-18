@@ -1,0 +1,65 @@
+---
+title: Best Skills ランキングと導入ガイド
+description: 最近伸びている新しい Skills、長期的な定番、導入候補をまとめたキュレーションです。
+date: 2026-03-18
+tags:
+  - skills
+  - ranking
+  - recommendations
+  - security
+---
+
+このページでは Best Skills のまとめを、より素早く判断しやすい形に整理しています。Tab を切り替えるだけで、月間注目、週間上昇、総合評価を確認できます。
+
+<Tabs defaultValue="month">
+<Tab value="month" label="Monthly Best">
+
+<div className="not-prose mt-6 space-y-5">
+  <SkillCard title="Veryfi" summary="領収書、請求書、PDF、チャット画像を構造化データに変える財務向け OCR Skill。" installCommand="clawhub install veryfi" badges={['OCR', '財務', '新規']} details={[{ label: '公開日', value: '3月2日' }, { label: '注目理由', value: '金額、税番号、日付、加盟店などを高速抽出でき、経費精算や帳簿整理に強い。' }]} />
+  <SkillCard title="Larry" summary="台本生成から投稿運用までを一つの流れにまとめた AI TikTok Growth Engine。" installCommand="clawhub install larry" badges={['動画', '成長', 'Creator']} details={[{ label: '公開時期', value: '3月8日から3月10日頃' }, { label: '注目理由', value: '台本、字幕、動画生成、アップロード、配信戦略までをまとめて処理できる。' }]} />
+  <SkillCard title="Skill Vetter" summary="ほぼすべての第三者 Skill 導入前に置いておきたいセキュリティ監査 Skill。" installCommand="clawhub install skill-vetter" badges={['Security', 'Audit', '必須']} details={[{ label: '公開時期', value: '2月25日から3月上旬' }, { label: '注目理由', value: 'コード、権限、URL、eval や exec、危険なファイルアクセスを確認できる。' }]} />
+  <SkillCard title="Nut Studio macOS Series" summary="長時間のローカル実行と省電力を意識した macOS 特化 Skill シリーズ。" installCommand="clawhub install nut-macos-xxx" badges={['macOS', 'Local', 'Performance']} details={[{ label: '公開日', value: '3月14日' }, { label: '注目理由', value: '常時稼働のローカルワークフローに向けた軽量化と最適化が明確。' }]} />
+  <SkillCard title="Felo Search / SuperAgent" summary="鮮度の高い検索と、そのまま使える成果物生成を組み合わせたリサーチ系スタック。" installCommand="clawhub install felo-search" badges={['Search', 'Research', 'Slides']} details={[{ label: '注目急増', value: '3月17日に大きく露出' }, { label: '注目理由', value: 'ライブ検索と PPT のような出力を一緒に扱え、最新性が重要な調査に向く。' }]} />
+</div>
+
+</Tab>
+
+<Tab value="week" label="Weekly Best">
+
+<div className="not-prose mt-6 space-y-5">
+  <SkillCard title="Larry" summary="今週最も勢いがある Skills の一つで、短尺動画制作と自動投稿が中心。" installCommand="clawhub install larry" badges={['Hot', 'TikTok', 'Automation']} details={[{ label: '週間シグナル', value: '今週もっとも話題になった新規 Skill の一つ' }, { label: '主な価値', value: '動画、台本、字幕、投稿まで自動化でき、量産型の運用に向いている。' }]} />
+  <SkillCard title="Veryfi" summary="財務・オフィス業務で伸びている、構造化データ変換向け Utility Skill。" installCommand="clawhub install veryfi" badges={['Finance', 'Office', 'Momentum']} details={[{ label: '週間シグナル', value: '経費処理や精算系ワークフローで急伸' }, { label: '主な価値', value: '写真や PDF を帳簿向けデータへ素早く変換し、手作業を減らせる。' }]} />
+  <SkillCard title="Felo Search" summary="より新しい回答と速い調査整理を求めるユーザーから注目されるライブ検索 Skill。" installCommand="clawhub install felo-search" badges={['Search', 'Research', 'Momentum']} details={[{ label: '週間シグナル', value: 'ライブ検索系 Skill の中で話題が上昇' }, { label: '主な価値', value: 'Web 検索と PPT 生成を組み合わせ、調査要約や報告資料に使いやすい。' }]} />
+  <SkillCard title="Parliament-Claw" summary="共同参加やランキング体験を重視した新しい Skill で、複数ユーザーやモデル比較向け。" installCommand="clawhub install parliament-claw" badges={['New', 'Collaboration', 'Leaderboard']} details={[{ label: '状態', value: '公開直後' }, { label: '主な価値', value: '協調型 AI、スコアリング、モデル比較を試したいユーザーに向いている。' }]} />
+</div>
+
+</Tab>
+
+<Tab value="overall" label="Best Overall">
+
+<div className="not-prose mt-6 space-y-5">
+  <SkillCard title="skill-vetter" summary="総合順位で最も勧めやすいのは、他の Skill の導入全体を安全にしてくれるから。" installCommand="clawhub install skill-vetter" badges={['#1', 'Security', 'Baseline']} details={[{ label: '高順位の理由', value: '第三者 Skill を入れる前の最初のチェックポイントとして最適。' }, { label: '中核の役割', value: 'コード、権限範囲、実行パターンを検査し、危険な Skill を早期に除外しやすくする。' }]} />
+  <SkillCard title="self-improving-agent / capability-evolver" summary="使うほど個人最適化が進み、長期的な価値が積み上がる生産性向け Skill。" installCommand="clawhub install self-improving-agent" badges={['Learning', 'Memory', 'Adaptation']} details={[{ label: '高順位の理由', value: '失敗、好み、反復的なやり取りを学びながら価値が複利で積み上がる。' }, { label: '中核の役割', value: 'OpenClaw をより自分向けで実務的なアシスタントへ近づける。' }]} />
+  <SkillCard title="gog" summary="Google Workspace を日常業務へ直接つなぐ、高実用性の連携 Skill。" installCommand="clawhub install gog" badges={['Workspace', 'Office', 'Integration']} details={[{ label: '高順位の理由', value: 'Gmail、Calendar、Drive、Docs、Sheets を一つの流れにまとめられる。' }, { label: '中核の役割', value: 'メール返信、日程調整、文書処理、日常オフィス自動化に向く。' }]} />
+  <SkillCard title="agent-browser" summary="実際の Web サイト上で行動するための基盤 Skill で、多くの自動化に不可欠。" installCommand="clawhub install agent-browser" badges={['Browser', 'Automation', 'Execution']} details={[{ label: '高順位の理由', value: 'ブラウザ制御がなければ成立しない自動化タスクが非常に多い。' }, { label: '中核の役割', value: 'フォーム入力、スクリーンショット、データ抽出、サイト操作を支える。' }]} />
+  <SkillCard title="summarize" summary="Web ページ、PDF、YouTube、ノートを短時間で要約できる高頻度 Utility Skill。" installCommand="clawhub install summarize" badges={['Summary', 'Research', 'High-frequency']} details={[{ label: '高順位の理由', value: '情報量が多いワークフローで、ほぼ常に読書時間を削減できる。' }, { label: '中核の役割', value: '大量の入力情報を、より速い要点抽出ループに変える。' }]} />
+</div>
+
+<div className="not-prose mt-6 rounded-[26px] border border-line/70 bg-panel/70 p-5">
+  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-muted/70">
+    追加候補
+  </p>
+  <ul className="mt-4 space-y-3 text-sm leading-7 text-muted">
+    <li><span className="font-semibold text-ink">github</span>: PR 作成、コードレビュー、issue 管理、リポジトリ操作向け。</li>
+    <li><span className="font-semibold text-ink">tavily-search / Exa / Brave Search</span>: より強いリアルタイム検索が必要な場合に有効。</li>
+    <li><span className="font-semibold text-ink">notion / obsidian</span>: 個人知識ベース連携や RAG 型の記憶強化に向く。</li>
+  </ul>
+</div>
+
+</Tab>
+</Tabs>
+
+## 続けて見る
+
+- [ホームへ戻る](../..)
+- [Skills ハブを見る](..)
