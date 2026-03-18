@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import Breadcrumbs from './Breadcrumbs';
+import { Tab, Tabs } from './MdxTabs';
 import { getHubLabel, getRelatedLinksForPost } from '@/lib/links';
 import {
   getPostBySlug,
@@ -46,7 +47,7 @@ export default function PostPage({
       </section>
 
       <article className="prose prose-invert max-w-none prose-headings:font-display prose-headings:text-ink prose-p:text-muted prose-li:text-muted">
-        <MDXRemote source={post.content} />
+        <MDXRemote source={post.content} components={{ Tabs, Tab }} />
       </article>
 
       <section className="rounded-3xl border border-line/70 bg-panel/70 p-6 backdrop-blur">
