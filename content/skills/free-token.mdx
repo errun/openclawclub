@@ -1,0 +1,121 @@
+---
+title: "OpenClaw Free Token Guide: Healer Alpha and Hunter Alpha"
+description: A structured guide to using Healer Alpha and Hunter Alpha with free OpenRouter tokens inside OpenClaw workflows.
+date: 2026-03-18
+tags:
+  - skills
+  - free-token
+  - openrouter
+  - healer-alpha
+  - hunter-alpha
+---
+
+This page is based on `content/freetoken_en.md` and reorganized into a cleaner guide for OpenClaw users who want to test free-token model workflows.
+
+## Why These Models Matter
+
+Hunter Alpha and Healer Alpha were described in the draft as a high-value free pairing on OpenRouter, with both models exposed under the `openrouter/` prefix and temporarily available at zero token cost for both input and output.
+
+- Free-period pricing reported as `0 / 1M` for both input and output
+- Hunter Alpha focuses on long-context planning and reasoning
+- Healer Alpha focuses on multimodal execution with image and audio support
+- The pair maps naturally to OpenClaw agent setups
+
+## Hunter Alpha
+
+Hunter Alpha is the planning-heavy model in the pair.
+
+### Key Specs
+
+- Claimed parameters: `1T`
+- Context window: `1,048,576` tokens
+- Max output: `32K`
+- Speed: about `38 tokens/s`
+- Latency: about `1.57s`
+
+### Best Use Cases
+
+- Large project planning
+- Long-context reasoning
+- Huge PDF or document analysis
+- Complex codebase refactoring
+- Agent-style multi-step workflows inside OpenClaw
+
+### Short Version
+
+Hunter Alpha is the model to use when you want OpenClaw to think across a massive context window before acting.
+
+## Healer Alpha
+
+Healer Alpha is the execution-heavy multimodal model in the pair.
+
+### Key Specs
+
+- Context window: `262,144` tokens
+- Max output: `32K`
+- Speed: about `24 tokens/s`
+- Latency: about `1.40s`
+
+### Input Support
+
+- Images via `image_url`
+- Audio via `WAV`
+- Video via `video_url`
+- Text
+
+### Best Use Cases
+
+- Screenshot and image analysis
+- Audio transcription and summarization
+- Cross-modal reasoning
+- Real-world multimodal agent tasks
+
+### Short Version
+
+Healer Alpha is the model to use when OpenClaw needs to see, hear, and act on more than plain text.
+
+## Best OpenClaw Split
+
+- Use `Hunter Alpha` as the planning brain
+- Use `Healer Alpha` as the multimodal executor
+
+That split gives OpenClaw a cleaner division between deep reasoning and real-world perception tasks.
+
+## How To Start
+
+1. Open `https://openrouter.ai`
+2. Sign up with email or Google
+3. Optionally create an API key in the dashboard
+4. Use chat directly at `https://openrouter.ai/chat` or connect the models inside OpenClaw
+
+## Model IDs
+
+- `openrouter/hunter-alpha`
+- `openrouter/healer-alpha`
+
+## Python Example
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://openrouter.ai/api/v1",
+    api_key="your_free_key"
+)
+
+response = client.chat.completions.create(
+    model="openrouter/hunter-alpha",
+    messages=[{"role": "user", "content": "Your massive task..."}]
+)
+```
+
+## OpenClaw Note
+
+The source draft says OpenClaw v13 added built-in installer options for both Hunter Alpha and Healer Alpha, so in compatible setups you may not need to manually type the model IDs at all.
+
+## Direct Links
+
+- Hunter Alpha: `https://openrouter.ai/openrouter/hunter-alpha`
+- Healer Alpha: `https://openrouter.ai/openrouter/healer-alpha`
+- OpenRouter Chat: `https://openrouter.ai/chat`
+- OpenClaw: `https://openclaw.ai`
