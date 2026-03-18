@@ -20,7 +20,7 @@ const LANGUAGE_SWITCHER_LABEL: Record<Locale, string> = {
 
 export default function HomePage({ locale }: { locale: Locale }) {
   const t = getStrings(locale);
-  const latestPosts = getAllPosts(locale).slice(0, 5);
+  const latestPosts = getAllPosts(locale, { includeFallback: false }).slice(0, 5);
   const languageLabel = LANGUAGE_SWITCHER_LABEL[locale];
 
   return (

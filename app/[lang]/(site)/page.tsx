@@ -4,11 +4,13 @@ import HomePage from '../../(site)/_components/HomePage';
 import {
   LOCALE_OG,
   ROUTED_LOCALES,
+  SUPPORTED_LOCALES,
   getStrings,
   isLocale,
   normalizeLocale,
   withLocale
 } from '@/lib/i18n';
+import { buildLocaleAlternates } from '@/lib/metadata';
 import { SITE_URL } from '@/lib/site';
 
 export function generateStaticParams() {
@@ -27,6 +29,7 @@ export function generateMetadata({
   return {
     title: t.siteTitle,
     description: t.siteDescription,
+    alternates: buildLocaleAlternates('/', locale, SUPPORTED_LOCALES),
     openGraph: {
       title: t.siteTitle,
       description: t.siteDescription,

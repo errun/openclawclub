@@ -1,6 +1,11 @@
 import type { Metadata } from 'next';
 import PostPage from '../../_components/PostPage';
-import { getPostBySlug, getPostsByHub } from '@/lib/content';
+import {
+  getAvailablePostLocales,
+  getPostBySlug,
+  getPostsByHub
+} from '@/lib/content';
+import { buildLocaleAlternates } from '@/lib/metadata';
 import { mergeKeywords } from '@/lib/seo';
 import { SITE_URL } from '@/lib/site';
 import { DEFAULT_LOCALE, LOCALE_OG } from '@/lib/i18n';
@@ -25,6 +30,11 @@ export function generateMetadata({
     title: post.title,
     description: post.description,
     keywords: mergeKeywords([post.title, ...post.tags, HUB]),
+    alternates: buildLocaleAlternates(
+      post.url,
+      DEFAULT_LOCALE,
+      getAvailablePostLocales(HUB, params.slug)
+    ),
     openGraph: {
       title: post.title,
       description: post.description,

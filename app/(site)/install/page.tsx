@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import HubPage from '../_components/HubPage';
-import { getHubMeta } from '@/lib/content';
+import { getAvailableHubLocales, getHubMeta } from '@/lib/content';
+import { buildLocaleAlternates } from '@/lib/metadata';
 import { mergeKeywords } from '@/lib/seo';
 import { SITE_URL } from '@/lib/site';
 import { DEFAULT_LOCALE, LOCALE_OG } from '@/lib/i18n';
@@ -14,6 +15,11 @@ export function generateMetadata(): Metadata {
     title: meta.title,
     description: meta.description,
     keywords: mergeKeywords([meta.title, meta.description, HUB]),
+    alternates: buildLocaleAlternates(
+      `/${HUB}`,
+      DEFAULT_LOCALE,
+      getAvailableHubLocales(HUB)
+    ),
     openGraph: {
       title: meta.title,
       description: meta.description,

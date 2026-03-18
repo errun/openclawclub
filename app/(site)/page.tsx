@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import HomePageView from './_components/HomePage';
-import { DEFAULT_LOCALE, LOCALE_OG } from '@/lib/i18n';
+import { DEFAULT_LOCALE, LOCALE_OG, SUPPORTED_LOCALES } from '@/lib/i18n';
+import { buildLocaleAlternates } from '@/lib/metadata';
 import { SITE_URL } from '@/lib/site';
 
 const HOME_TITLE = 'Openclaw: Install Best Practices, Best Skills & Cheap Tokens';
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
     absolute: HOME_TITLE
   },
   description: HOME_DESCRIPTION,
+  alternates: buildLocaleAlternates('/', DEFAULT_LOCALE, SUPPORTED_LOCALES),
   openGraph: {
     title: HOME_TITLE,
     description: HOME_DESCRIPTION,

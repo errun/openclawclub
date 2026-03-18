@@ -16,7 +16,7 @@ export default function HubPage({
   if (!HUBS.includes(hub)) notFound();
   const t = getStrings(locale);
   const meta = getHubMeta(hub, locale);
-  const posts = getPostsByHub(hub, locale);
+  const posts = getPostsByHub(hub, locale, { includeFallback: false });
   const relatedLinks = posts.slice(0, 8).map((post) => ({
     href: withLocale(locale, post.url),
     label: post.title

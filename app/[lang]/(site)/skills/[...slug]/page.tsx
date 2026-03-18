@@ -1,22 +1,21 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import PostPage from '@/app/(site)/_components/PostPage';
-import { getPostBySlug, getPostsByHub } from '@/lib/content';
+import {
+  getAvailablePostLocales,
+  getPostBySlug,
+  getPostsByHub
+} from '@/lib/content';
+import { buildLocaleAlternates, getNoIndexRobots } from '@/lib/metadata';
 import { mergeKeywords } from '@/lib/seo';
 import { SITE_URL } from '@/lib/site';
-import {
-  LOCALE_OG,
-  ROUTED_LOCALES,
-  isLocale,
-  normalizeLocale,
-  withLocale
-} from '@/lib/i18n';
+import { DEFAULT_LOCALE, LOCALE_OG, ROUTED_LOCALES, isLocale, normalizeLocale, withLocale } from '@/lib/i18n';
 
 const HUB = 'skills' as const;
 
 export function generateStaticParams() {
   return ROUTED_LOCALES.flatMap((lang) =>
-    getPostsByHub(HUB, lang).map((post) => ({
+    getPostsByHub(HUB, lang, { includeFallback: false }).map((post) => ({
       lang,
       slug: post.slug
     }))
@@ -32,16 +31,24 @@ export function generateMetadata({
   const locale = normalizeLocale(params.lang);
   const post = getPostBySlug(HUB, params.slug, locale);
   if (!post) return {};
-  const url = `${SITE_URL}${withLocale(locale, post.url)}`;
+  const isLocalized = post.resolvedLocale === locale;
+  const canonicalLocale = isLocalized ? locale : DEFAULT_LOCALE;
+  const url = `${SITE_URL}${withLocale(canonicalLocale, post.url)}`;
   return {
     title: post.title,
     description: post.description,
     keywords: mergeKeywords([post.title, ...post.tags, HUB]),
+    alternates: buildLocaleAlternates(
+      post.url,
+      canonicalLocale,
+      getAvailablePostLocales(HUB, params.slug)
+    ),
+    robots: getNoIndexRobots(!isLocalized),
     openGraph: {
       title: post.title,
       description: post.description,
       url,
-      locale: LOCALE_OG[locale],
+      locale: LOCALE_OG[canonicalLocale],
       type: 'article'
     },
     twitter: {
