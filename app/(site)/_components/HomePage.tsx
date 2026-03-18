@@ -23,24 +23,24 @@ export default function HomePage({ locale }: { locale: Locale }) {
           <p className="mt-4 max-w-2xl text-base text-muted">
             {t.hero.description}
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
             <Link
               href={withLocale(locale, '/install')}
-              className="inline-flex cursor-pointer items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-black shadow-[0_14px_32px_rgba(200,165,98,0.28)] transition-shadow hover:shadow-[0_18px_40px_rgba(200,165,98,0.4)]"
+              className="inline-flex min-h-16 w-full cursor-pointer items-center justify-center rounded-2xl border border-ink/15 bg-panel/75 px-8 py-4 text-lg font-semibold text-ink transition-colors hover:border-ink/30 hover:bg-panel/90 sm:w-auto"
             >
               {t.hero.primaryCta}
             </Link>
             <Link
               href={withLocale(locale, '/skills/best-skills')}
-              className="inline-flex cursor-pointer items-center justify-center rounded-full border border-accent/60 bg-accent/12 px-6 py-3 text-sm font-semibold text-ink shadow-[0_18px_42px_rgba(200,165,98,0.16)] transition-colors hover:border-accent hover:bg-accent/18"
+              className="inline-flex min-h-16 w-full cursor-pointer items-center justify-center rounded-2xl bg-accent px-8 py-4 text-lg font-semibold text-black shadow-[0_20px_48px_rgba(200,165,98,0.34)] transition-shadow hover:shadow-[0_24px_56px_rgba(200,165,98,0.46)] sm:w-auto"
             >
               Open Best Skills
             </Link>
             <Link
               href={withLocale(locale, '/skills/free-token')}
-              className="inline-flex cursor-pointer items-center justify-center rounded-full border border-ink/15 bg-panel/70 px-6 py-3 text-sm font-semibold text-ink transition-colors hover:border-ink/30 hover:bg-panel/90"
+              className="inline-flex min-h-16 w-full cursor-pointer items-center justify-center rounded-2xl border border-accent/45 bg-[linear-gradient(180deg,rgba(200,165,98,0.16),rgba(30,38,51,0.8))] px-8 py-4 text-lg font-semibold text-ink shadow-[0_20px_46px_rgba(200,165,98,0.16)] transition-colors hover:border-accent/75 hover:bg-[linear-gradient(180deg,rgba(200,165,98,0.22),rgba(30,38,51,0.9))] sm:w-auto"
             >
-              free token
+              Free Token
             </Link>
           </div>
           <div className="mt-10 grid gap-4 text-sm sm:grid-cols-3">

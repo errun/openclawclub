@@ -36,6 +36,10 @@ export const metadata: Metadata = {
     template: '%s | Openclaw'
   },
   description: defaultStrings.siteDescription,
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg'
+  },
   keywords: BRAND_KEYWORDS,
   openGraph: {
     title: defaultStrings.siteTitle,
