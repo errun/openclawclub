@@ -9,118 +9,236 @@ tags:
   - security
 ---
 
-这篇页面基于 `content/Best Skills.md` 整理，按“新上榜技能”“本周热度上升”“总榜推荐”三个部分重排，方便直接浏览和跳转安装。
+这页把原来的 Best Skills 长文重排成更快的决策页。直接切换 Tab，就能看月最佳、周最佳和总榜最佳。
 
-<Tabs defaultValue="new">
-<Tab value="new" label="最近一个月 Top 5 新 Best Skills">
+<Tabs defaultValue="month">
+<Tab value="month" label="月最佳">
 
-### 1. Veryfi
-
-- 上线时间：3 月 2 日
-- 定位：发票 / 收据 OCR
-- 为什么值得关注：上传照片、PDF、WhatsApp 内容后，可以快速提取金额、税号、日期、商户等结构化信息，适合记账、报销和财务整理场景。
-- 安装命令：`clawhub install veryfi`
-
-### 2. Larry
-
-- 上线时间：约 3 月 8 日到 3 月 10 日
-- 定位：AI TikTok Growth Engine
-- 为什么值得关注：覆盖脚本、字幕、视频生成、上传和增长策略，适合短视频创作者和内容团队。
-- 安装命令：`clawhub install larry`
-- 备用地址：`clawhub.ai/OllieWazza/larry`
-
-### 3. Skill Vetter
-
-- 上线时间：2 月 25 日到 3 月初
-- 定位：安全审查员
-- 为什么值得关注：主打技能代码和权限审查，会扫描未知 URL、`eval`、`exec`、文件读取等风险点，并输出分级报告。
-- 安装命令：`clawhub install skill-vetter`
-- 常用 slug：`spclaudehome/skill-vetter`
-
-### 4. Nut Studio macOS 系列
-
-- 上线时间：3 月 14 日
-- 定位：macOS 本地优化技能集合
-- 为什么值得关注：强调本地运行更快、更省电，适合需要长时间运行工作流的 macOS 用户。
-- 安装方式：在 ClawHub 搜索 `nut-studio`，或直接安装对应的 `nut-macos-*` 技能
-
-### 5. Felo Search / SuperAgent 系列
-
-- 关注时间：3 月 17 日相关博客集中推荐
-- 定位：实时搜索与内容生成
-- 为什么值得关注：主打更强的实时搜索能力，同时支持一键生成 PPT，适合补齐知识时效性场景。
-- 安装命令：`clawhub install felo-search`
+<div className="not-prose mt-6 space-y-5">
+  <SkillCard
+    title="Veryfi"
+    summary="偏财务与报销场景的 OCR 技能，能把发票、收据、PDF 和聊天截图快速转成结构化数据。"
+    installCommand="clawhub install veryfi"
+    badges={['OCR', '财务', '新晋']}
+    details={[
+      { label: '上线时间', value: '3 月 2 日' },
+      {
+        label: '为什么值得看',
+        value:
+          '金额、税号、日期、商户等字段提取速度很快，特别适合记账、报销和财务整理流程。'
+      }
+    ]}
+  />
+  <SkillCard
+    title="Larry"
+    summary="面向短视频创作者的 AI TikTok Growth Engine，从脚本生成一路覆盖到发布和增长。"
+    installCommand="clawhub install larry"
+    badges={['短视频', '增长', '创作者']}
+    details={[
+      { label: '上线时间', value: '约 3 月 8 日到 3 月 10 日' },
+      {
+        label: '为什么值得看',
+        value:
+          '把脚本、字幕、视频生成、上传和增长策略放进一条链路里，适合追求高频产出的内容团队。'
+      }
+    ]}
+  />
+  <SkillCard
+    title="Skill Vetter"
+    summary="偏安全审查的必备技能，适合放在所有第三方技能安装动作之前。"
+    installCommand="clawhub install skill-vetter"
+    badges={['安全', '审计', '必装']}
+    details={[
+      { label: '上线时间', value: '2 月 25 日到 3 月初' },
+      {
+        label: '为什么值得看',
+        value:
+          '会检查代码、权限范围、可疑 URL、eval 或 exec 以及异常文件访问，能提前拦掉高风险技能。'
+      }
+    ]}
+  />
+  <SkillCard
+    title="Nut Studio macOS 系列"
+    summary="专注 macOS 本地运行优化的技能系列，更适合长时间、本地常驻的工作流。"
+    installCommand="clawhub install nut-macos-xxx"
+    badges={['macOS', '本地', '性能']}
+    details={[
+      { label: '上线时间', value: '3 月 14 日' },
+      {
+        label: '为什么值得看',
+        value:
+          '主打更快、更省电的本地执行体验，适合长期挂着跑的自动化任务。'
+      }
+    ]}
+  />
+  <SkillCard
+    title="Felo Search / SuperAgent"
+    summary="偏实时搜索与内容生成的组合技能，适合对信息时效性要求比较高的场景。"
+    installCommand="clawhub install felo-search"
+    badges={['搜索', '研究', 'PPT']}
+    details={[
+      { label: '热度时间点', value: '3 月 17 日集中被推荐' },
+      {
+        label: '为什么值得看',
+        value:
+          '一边做实时检索，一边给出整理后的内容输出，尤其适合研究和汇报型任务。'
+      }
+    ]}
+  />
+</div>
 
 </Tab>
 
-<Tab value="momentum" label="最近一周热度上升的技能">
+<Tab value="week" label="周最佳">
 
-以下内容整理自 2026-03-11 到 2026-03-18 这一周的记录，适合想先装“最近讨论度最高”的用户。
+<p>这里整理的是 2026-03-11 到 2026-03-18 这一周里讨论度和安装势头最明显的技能。</p>
 
-### Larry
-
-- 这一周最热的新技能之一
-- 重点价值：自动化生成 TikTok 视频、脚本、字幕和上传流程
-- 安装命令：`clawhub install larry`
-
-### Veryfi
-
-- 财务与办公场景增长明显
-- 重点价值：把照片或 PDF 快速转成结构化报销 / 记账数据
-- 安装命令：`clawhub install veryfi`
-
-### Felo Search
-
-- 实时搜索类技能里讨论度明显上升
-- 重点价值：联网搜索与 PPT 生成结合，适合研究和资料整理
-- 安装命令：`clawhub install felo-search`
-
-### Parliament-Claw
-
-- 状态：刚上线
-- 重点价值：偏协作和 leaderboard 玩法，适合测试模型、多人参与或尝试“AI 经济”玩法
-- 安装命令：`clawhub install parliament-claw`
+<div className="not-prose mt-6 space-y-5">
+  <SkillCard
+    title="Larry"
+    summary="本周最强势的爆发型技能之一，核心方向还是短视频内容生产和自动发布。"
+    installCommand="clawhub install larry"
+    badges={['热度上升', 'TikTok', '自动化']}
+    details={[
+      { label: '本周信号', value: '属于这周讨论度最高的一批新技能' },
+      {
+        label: '核心价值',
+        value:
+          '自动生成视频、脚本、字幕和发布流程，明显适合想提升内容产量的用户。'
+      }
+    ]}
+  />
+  <SkillCard
+    title="Veryfi"
+    summary="财务和办公场景里增长很快的工具型技能，适合把杂乱票据整理成可用数据。"
+    installCommand="clawhub install veryfi"
+    badges={['财务', '办公', '热度上升']}
+    details={[
+      { label: '本周信号', value: '在报销和记账工作流里明显升温' },
+      {
+        label: '核心价值',
+        value:
+          '把照片和 PDF 快速变成结构化账务信息，能省掉很多人工整理时间。'
+      }
+    ]}
+  />
+  <SkillCard
+    title="Felo Search"
+    summary="面向联网搜索和研究整理的技能，本周在实时搜索类里讨论度抬头很快。"
+    installCommand="clawhub install felo-search"
+    badges={['搜索', '研究', '热度上升']}
+    details={[
+      { label: '本周信号', value: '在实时搜索技能里关注度持续上升' },
+      {
+        label: '核心价值',
+        value:
+          '把搜索和 PPT 生成放在一起，适合做研究摘要和汇报材料整理。'
+      }
+    ]}
+  />
+  <SkillCard
+    title="Parliament-Claw"
+    summary="刚上线的协作型技能，偏排行榜和多人参与玩法，适合测试模型和互动场景。"
+    installCommand="clawhub install parliament-claw"
+    badges={['新上线', '协作', '排行榜']}
+    details={[
+      { label: '当前状态', value: '刚上线' },
+      {
+        label: '核心价值',
+        value:
+          '更适合想玩协作 AI、做模型对比，或者尝试社区参与型玩法的用户。'
+      }
+    ]}
+  />
+</div>
 
 </Tab>
 
-<Tab value="overall" label="总榜推荐">
+<Tab value="overall" label="总榜最佳">
 
-### 1. skill-vetter
+<div className="not-prose mt-6 space-y-5">
+  <SkillCard
+    title="skill-vetter"
+    summary="总榜第一的原因很直接：它保护的是后面所有技能的安装安全。"
+    installCommand="clawhub install skill-vetter"
+    badges={['#1', '安全', '基础设施']}
+    details={[
+      { label: '为什么排第一', value: '几乎应该作为所有第三方技能安装前的第一步。' },
+      {
+        label: '核心作用',
+        value:
+          '检查代码、权限和执行模式，把高风险技能尽量挡在真正安装之前。'
+      }
+    ]}
+  />
+  <SkillCard
+    title="self-improving-agent / capability-evolver"
+    summary="长期价值很高的个性化技能，会随着使用过程不断积累偏好和行为优化。"
+    installCommand="clawhub install self-improving-agent"
+    badges={['学习', '偏好', '进化']}
+    details={[
+      { label: '为什么排前列', value: '它不是一次性工具，而是越用越值钱的能力层。' },
+      {
+        label: '核心作用',
+        value:
+          '记录错误、学习偏好、跨会话优化，让 OpenClaw 更像一个持续成长的助手。'
+      }
+    ]}
+  />
+  <SkillCard
+    title="gog"
+    summary="很实用的 Google Workspace 集成技能，直接打通日常办公最常用的几类工具。"
+    installCommand="clawhub install gog"
+    badges={['Workspace', '办公', '集成']}
+    details={[
+      { label: '为什么排前列', value: '把 Gmail、日历、Drive、Docs、Sheets 放进同一条助手工作流。' },
+      {
+        label: '核心作用',
+        value:
+          '适合邮件回复、会议安排、文档处理和日常办公自动化。'
+      }
+    ]}
+  />
+  <SkillCard
+    title="agent-browser"
+    summary="浏览器自动化底座型技能，很多需要真实操作网页的任务都离不开它。"
+    installCommand="clawhub install agent-browser"
+    badges={['浏览器', '自动化', '执行力']}
+    details={[
+      { label: '为什么排前列', value: '很多自动化任务没有浏览器控制能力就无法真正落地。' },
+      {
+        label: '核心作用',
+        value:
+          '支持填表、截图、抓取数据和网页交互，适合研究、执行和自动化场景。'
+      }
+    ]}
+  />
+  <SkillCard
+    title="summarize"
+    summary="高频使用型技能，适合把网页、PDF、YouTube 和笔记快速压缩成可读摘要。"
+    installCommand="clawhub install summarize"
+    badges={['摘要', '研究', '高频']}
+    details={[
+      { label: '为什么排前列', value: '几乎所有内容密集型工作流里都能直接节省阅读时间。' },
+      {
+        label: '核心作用',
+        value:
+          '把高强度信息输入变成更快的提炼流程，不需要逐条手工看完所有内容。'
+      }
+    ]}
+  />
+</div>
 
-- 关键词：安全审查 / 风险控制
-- 推荐理由：适合作为安装第三方 Skills 之前的第一道检查
-- 安装命令：`clawhub install skill-vetter`
-
-### 2. self-improving-agent / capability-evolver
-
-- 关键词：自我进化 / 偏好学习
-- 推荐理由：通过记录错误、学习偏好、跨会话反思来持续优化 AI 的行为表现
-- 安装命令：`clawhub install self-improving-agent`
-- 备用名称：`capability-evolver`
-
-### 3. gog
-
-- 关键词：Google Workspace 集成
-- 推荐理由：打通 Gmail、Calendar、Drive、Docs、Sheets，适合办公自动化
-- 安装命令：`clawhub install gog`
-
-### 4. agent-browser
-
-- 关键词：浏览器自动化 / Playwright
-- 推荐理由：让 AI 可以直接操作网页、填表、截图和抓取数据，是很多自动化场景的基础能力
-- 安装命令：`clawhub install agent-browser`
-
-### 5. summarize
-
-- 关键词：网页 / PDF / YouTube 摘要
-- 推荐理由：适合高频信息消费场景，能明显压缩阅读和整理时间
-- 安装命令：`clawhub install summarize`
-
-## 进阶补充
-
-- `github`：适合开发者，用于 PR、代码审查、issue 和 repo 管理
-- `tavily-search` / `Exa` / `Brave Search`：适合更强的实时联网搜索
-- `notion` / `obsidian`：适合接入个人知识库，构建 RAG 记忆场景
+<div className="not-prose mt-6 rounded-[26px] border border-line/70 bg-panel/70 p-5">
+  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-muted/70">
+    进阶补充
+  </p>
+  <ul className="mt-4 space-y-3 text-sm leading-7 text-muted">
+    <li><span className="font-semibold text-ink">github</span>：适合 PR、代码审查、issue 和仓库操作。</li>
+    <li><span className="font-semibold text-ink">tavily-search / Exa / Brave Search</span>：适合更强的实时联网搜索需求。</li>
+    <li><span className="font-semibold text-ink">notion / obsidian</span>：适合接入个人知识库，构建更稳定的 RAG 记忆能力。</li>
+  </ul>
+</div>
 
 </Tab>
 </Tabs>

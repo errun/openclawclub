@@ -69,7 +69,7 @@ export function Tabs({ children, defaultValue }: TabsProps) {
               aria-controls={panelId}
               aria-selected={selected}
               className={[
-                'min-h-24 rounded-2xl border px-4 py-4 text-left transition-all',
+                'flex min-h-[4.75rem] items-center justify-center rounded-2xl border px-4 py-4 text-center transition-all',
                 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/80',
                 selected
                   ? 'border-accent/70 bg-accent/12 text-ink shadow-[0_20px_45px_rgba(200,165,98,0.12)]'
@@ -80,7 +80,7 @@ export function Tabs({ children, defaultValue }: TabsProps) {
               role="tab"
               type="button"
             >
-              <span className="block text-sm font-semibold leading-6 sm:text-base">
+              <span className="block text-base font-semibold leading-6 sm:text-[1.05rem]">
                 {tab.label}
               </span>
             </button>

@@ -9,118 +9,236 @@ tags:
   - security
 ---
 
-This page is adapted from `content/Best Skills.md` and reorganized into three sections: newly trending Skills, Skills gaining momentum this week, and long-term top picks.
+This page turns the current Best Skills roundup into a faster decision board. Use the tabs to switch between monthly standouts, weekly movers, and long-term top picks.
 
-<Tabs defaultValue="new">
-<Tab value="new" label="Top 5 New Best Skills in the Past Month">
+<Tabs defaultValue="month">
+<Tab value="month" label="月最佳">
 
-### 1. Veryfi
-
-- Launch date: March 2
-- Focus: invoice and receipt OCR
-- Why it matters: extracts structured fields such as amount, tax ID, date, and merchant from photos, PDFs, and WhatsApp content, which makes it useful for bookkeeping and expense workflows.
-- Install command: `clawhub install veryfi`
-
-### 2. Larry
-
-- Launch window: roughly March 8 to March 10
-- Focus: AI TikTok Growth Engine
-- Why it matters: covers scripts, subtitles, video generation, uploads, and growth strategy for creators and short-form content teams.
-- Install command: `clawhub install larry`
-- Alternate path: `clawhub.ai/OllieWazza/larry`
-
-### 3. Skill Vetter
-
-- Launch window: February 25 to early March
-- Focus: security auditing
-- Why it matters: reviews Skill code and permission patterns, flags suspicious URLs, `eval`, `exec`, file access, and other risky behavior, then returns a severity report.
-- Install command: `clawhub install skill-vetter`
-- Common slug: `spclaudehome/skill-vetter`
-
-### 4. Nut Studio macOS Series
-
-- Launch date: March 14
-- Focus: macOS-local optimization
-- Why it matters: optimized for faster and lower-power local execution, which fits always-on workflows on macOS.
-- Install method: search `nut-studio` in ClawHub or install the matching `nut-macos-*` package directly
-
-### 5. Felo Search / SuperAgent Series
-
-- Attention spike: major blog coverage on March 17
-- Focus: live search and content generation
-- Why it matters: combines stronger real-time search with one-click PPT generation, which is useful when knowledge freshness matters.
-- Install command: `clawhub install felo-search`
+<div className="not-prose mt-6 space-y-5">
+  <SkillCard
+    title="Veryfi"
+    summary="A finance-first OCR Skill that turns receipts, invoices, PDFs, and WhatsApp captures into structured expense data within seconds."
+    installCommand="clawhub install veryfi"
+    badges={['OCR', 'Finance', 'New']}
+    details={[
+      { label: 'Launch', value: 'March 2' },
+      {
+        label: 'Why it stands out',
+        value:
+          'Extracts amount, tax ID, date, and merchant fields fast, which makes it especially strong for bookkeeping and reimbursement workflows.'
+      }
+    ]}
+  />
+  <SkillCard
+    title="Larry"
+    summary="An AI TikTok Growth Engine focused on taking creators from script generation to publishing and growth operations in one flow."
+    installCommand="clawhub install larry"
+    badges={['Video', 'Growth', 'Creator']}
+    details={[
+      { label: 'Launch Window', value: 'Roughly March 8 to March 10' },
+      {
+        label: 'Why it stands out',
+        value:
+          'Handles scripts, captions, video generation, uploads, and distribution strategy for short-form content teams.'
+      }
+    ]}
+  />
+  <SkillCard
+    title="Skill Vetter"
+    summary="A security auditing Skill that should sit in front of almost every third-party installation workflow."
+    installCommand="clawhub install skill-vetter"
+    badges={['Security', 'Audit', 'Must-have']}
+    details={[
+      { label: 'Launch Window', value: 'February 25 to early March' },
+      {
+        label: 'Why it stands out',
+        value:
+          'Reviews code and permission patterns, flags risky URLs, eval or exec usage, and suspicious file access before you trust a Skill.'
+      }
+    ]}
+  />
+  <SkillCard
+    title="Nut Studio macOS Series"
+    summary="A macOS-oriented Skill series built for faster local execution and lower power usage on always-on setups."
+    installCommand="clawhub install nut-macos-xxx"
+    badges={['macOS', 'Local', 'Performance']}
+    details={[
+      { label: 'Launch', value: 'March 14' },
+      {
+        label: 'Why it stands out',
+        value:
+          'Targets users who run long-lived local workflows and want a cleaner optimization path on macOS hardware.'
+      }
+    ]}
+  />
+  <SkillCard
+    title="Felo Search / SuperAgent"
+    summary="A live-search and content-generation stack that combines fresher retrieval with one-click presentation output."
+    installCommand="clawhub install felo-search"
+    badges={['Search', 'Research', 'Slides']}
+    details={[
+      { label: 'Attention Spike', value: 'Major coverage on March 17' },
+      {
+        label: 'Why it stands out',
+        value:
+          'Useful when freshness matters, especially for research tasks that need both live web search and packaged outputs such as PPTs.'
+      }
+    ]}
+  />
+</div>
 
 </Tab>
 
-<Tab value="momentum" label="Skills Gaining Momentum This Week">
+<Tab value="week" label="周最佳">
 
-This section summarizes the week of 2026-03-11 through 2026-03-18 and is aimed at users who want the most actively discussed Skills first.
+<p>These are the Skills that gained the most visible momentum during 2026-03-11 through 2026-03-18.</p>
 
-### Larry
-
-- One of the hottest new Skills this week
-- Key value: automates TikTok video creation, scripts, captions, and publishing
-- Install command: `clawhub install larry`
-
-### Veryfi
-
-- Strong growth in finance and office workflows
-- Key value: turns photos and PDFs into structured expense and bookkeeping data
-- Install command: `clawhub install veryfi`
-
-### Felo Search
-
-- Rising discussion volume among live search Skills
-- Key value: combines web search and PPT generation for research and synthesis
-- Install command: `clawhub install felo-search`
-
-### Parliament-Claw
-
-- Status: newly launched
-- Key value: collaborative and leaderboard-oriented gameplay for model testing and shared participation
-- Install command: `clawhub install parliament-claw`
+<div className="not-prose mt-6 space-y-5">
+  <SkillCard
+    title="Larry"
+    summary="One of the strongest breakout Skills this week for short-form content creation and automated publishing."
+    installCommand="clawhub install larry"
+    badges={['Hot', 'TikTok', 'Automation']}
+    details={[
+      { label: 'Weekly Signal', value: 'One of the most actively discussed launches this week' },
+      {
+        label: 'Key value',
+        value:
+          'Automates video creation, scripts, captions, and publishing in a way that appeals directly to creators chasing output speed.'
+      }
+    ]}
+  />
+  <SkillCard
+    title="Veryfi"
+    summary="A fast-rising utility Skill for finance and office workflows where messy files need to become structured records."
+    installCommand="clawhub install veryfi"
+    badges={['Finance', 'Office', 'Momentum']}
+    details={[
+      { label: 'Weekly Signal', value: 'Strong growth in expense and reimbursement workflows' },
+      {
+        label: 'Key value',
+        value:
+          'Turns photos and PDFs into structured bookkeeping data, which removes a lot of manual cleanup work.'
+      }
+    ]}
+  />
+  <SkillCard
+    title="Felo Search"
+    summary="A live-search option getting more attention from users who want fresher answers and faster research packaging."
+    installCommand="clawhub install felo-search"
+    badges={['Search', 'Research', 'Momentum']}
+    details={[
+      { label: 'Weekly Signal', value: 'Rising discussion volume among live-search Skills' },
+      {
+        label: 'Key value',
+        value:
+          'Pairs web retrieval with PPT generation, which makes it useful for research synthesis and client-ready output.'
+      }
+    ]}
+  />
+  <SkillCard
+    title="Parliament-Claw"
+    summary="A newly launched collaborative and leaderboard-driven Skill aimed at multi-user participation and model comparison."
+    installCommand="clawhub install parliament-claw"
+    badges={['New', 'Collaboration', 'Leaderboard']}
+    details={[
+      { label: 'Status', value: 'Just launched' },
+      {
+        label: 'Key value',
+        value:
+          'Fits users experimenting with collaborative AI play, scoring systems, and side-by-side model evaluation.'
+      }
+    ]}
+  />
+</div>
 
 </Tab>
 
-<Tab value="overall" label="Overall Top Picks">
+<Tab value="overall" label="总榜最佳">
 
-### 1. skill-vetter
+<div className="not-prose mt-6 space-y-5">
+  <SkillCard
+    title="skill-vetter"
+    summary="The strongest default recommendation because it protects the rest of your installation flow."
+    installCommand="clawhub install skill-vetter"
+    badges={['#1', 'Security', 'Baseline']}
+    details={[
+      { label: 'Why it ranks highly', value: 'It should be the first stop before installing third-party Skills.' },
+      {
+        label: 'Core role',
+        value:
+          'Checks code, permission scopes, and execution patterns so risky Skills are easier to reject early.'
+      }
+    ]}
+  />
+  <SkillCard
+    title="self-improving-agent / capability-evolver"
+    summary="A long-term productivity Skill designed to make the assistant more personalized and more useful over time."
+    installCommand="clawhub install self-improving-agent"
+    badges={['Learning', 'Memory', 'Adaptation']}
+    details={[
+      { label: 'Why it ranks highly', value: 'It compounds value by learning from mistakes, preferences, and repeated interactions.' },
+      {
+        label: 'Core role',
+        value:
+          'Helps move OpenClaw from simple chat behavior toward a more tailored, work-oriented assistant.'
+      }
+    ]}
+  />
+  <SkillCard
+    title="gog"
+    summary="A high-utility Google Workspace connector that plugs the assistant directly into common office workflows."
+    installCommand="clawhub install gog"
+    badges={['Workspace', 'Office', 'Integration']}
+    details={[
+      { label: 'Why it ranks highly', value: 'Brings Gmail, Calendar, Drive, Docs, and Sheets into one assistant workflow.' },
+      {
+        label: 'Core role',
+        value:
+          'Useful for email replies, scheduling, document handling, and structured office automation.'
+      }
+    ]}
+  />
+  <SkillCard
+    title="agent-browser"
+    summary="A browser automation foundation that gives the assistant practical execution ability on real websites."
+    installCommand="clawhub install agent-browser"
+    badges={['Browser', 'Automation', 'Execution']}
+    details={[
+      { label: 'Why it ranks highly', value: 'Many automation tasks break down without direct browser control.' },
+      {
+        label: 'Core role',
+        value:
+          'Supports form filling, screenshots, data extraction, and site interaction for research and operational tasks.'
+      }
+    ]}
+  />
+  <SkillCard
+    title="summarize"
+    summary="A high-frequency utility for collapsing long web pages, PDFs, YouTube videos, and notes into faster takeaways."
+    installCommand="clawhub install summarize"
+    badges={['Summary', 'Research', 'High-frequency']}
+    details={[
+      { label: 'Why it ranks highly', value: 'It saves reading time in almost every content-heavy workflow.' },
+      {
+        label: 'Core role',
+        value:
+          'Turns high-volume information intake into a faster synthesis loop without requiring manual review of every source.'
+      }
+    ]}
+  />
+</div>
 
-- Keywords: security review and risk control
-- Why it ranks highly: a strong first line of defense before installing third-party Skills
-- Install command: `clawhub install skill-vetter`
-
-### 2. self-improving-agent / capability-evolver
-
-- Keywords: self-improvement and preference learning
-- Why it ranks highly: continuously refines behavior by recording errors, learning preferences, and reflecting across sessions
-- Install command: `clawhub install self-improving-agent`
-- Alternate name: `capability-evolver`
-
-### 3. gog
-
-- Keywords: Google Workspace integration
-- Why it ranks highly: connects Gmail, Calendar, Drive, Docs, and Sheets for office automation
-- Install command: `clawhub install gog`
-
-### 4. agent-browser
-
-- Keywords: browser automation and Playwright
-- Why it ranks highly: gives AI the ability to operate web pages, fill forms, capture screenshots, and extract data
-- Install command: `clawhub install agent-browser`
-
-### 5. summarize
-
-- Keywords: web, PDF, and YouTube summarization
-- Why it ranks highly: useful for high-volume reading and synthesis workflows
-- Install command: `clawhub install summarize`
-
-## Advanced Add-ons
-
-- `github`: useful for PR creation, code review, issues, and repository operations
-- `tavily-search` / `Exa` / `Brave Search`: better fits users who need stronger live web search
-- `notion` / `obsidian`: useful for personal knowledge-base integration and RAG-style memory
+<div className="not-prose mt-6 rounded-[26px] border border-line/70 bg-panel/70 p-5">
+  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-muted/70">
+    Advanced Add-ons
+  </p>
+  <ul className="mt-4 space-y-3 text-sm leading-7 text-muted">
+    <li><span className="font-semibold text-ink">github</span>: useful for PR creation, code review, issues, and repository operations.</li>
+    <li><span className="font-semibold text-ink">tavily-search / Exa / Brave Search</span>: better fits users who need stronger live web search.</li>
+    <li><span className="font-semibold text-ink">notion / obsidian</span>: useful for personal knowledge-base integration and RAG-style memory.</li>
+  </ul>
+</div>
 
 </Tab>
 </Tabs>
