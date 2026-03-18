@@ -1,4 +1,4 @@
-export const SUPPORTED_LOCALES = ['en', 'zh', 'ja', 'ko'] as const;
+export const SUPPORTED_LOCALES = ['en', 'zh', 'ja', 'ko', 'de'] as const;
 export type Locale = (typeof SUPPORTED_LOCALES)[number];
 
 export const DEFAULT_LOCALE: Locale = 'en';
@@ -10,21 +10,24 @@ export const LOCALE_LABELS: Record<Locale, string> = {
   en: 'English',
   zh: '中文',
   ja: '日本語',
-  ko: '한국어'
+  ko: '한국어',
+  de: 'Deutsch'
 };
 
 export const LOCALE_HTML_LANG: Record<Locale, string> = {
   en: 'en',
   zh: 'zh-Hans',
   ja: 'ja',
-  ko: 'ko'
+  ko: 'ko',
+  de: 'de'
 };
 
 export const LOCALE_OG: Record<Locale, string> = {
   en: 'en_US',
   zh: 'zh_CN',
   ja: 'ja_JP',
-  ko: 'ko_KR'
+  ko: 'ko_KR',
+  de: 'de_DE'
 };
 
 export function isLocale(value?: string): value is Locale {
@@ -518,6 +521,110 @@ export const UI_STRINGS: Record<Locale, {
       skillsBestPractices: 'Skills 베스트 프랙티스',
       apiKeySafety: 'API 키 보안',
       performancePitfalls: '성능 주의사항'
+    }
+  },
+  de: {
+    siteTitle: 'Openclaw / Moltbot / Clawdbot - Persönliches KI-Assistenten-Ökosystem',
+    siteDescription:
+      'Openclaw (Moltbot / Clawdbot) persönliches KI-Assistenten-Ökosystem: einheitlicher Zugang, Skills-Ökosystem, Automatisierung und Sicherheits-Best-Practices.',
+    nav: {
+      home: 'Startseite'
+    },
+    hero: {
+      title: 'Openclaw Persönliches KI-Assistenten-Ökosystem',
+      description:
+        'Openclaw (auch bekannt als Moltbot / Clawdbot) bietet einen einheitlichen Installationszugang, Skills-Funktionen, Automatisierungs-Workflows und Sicherheits-Governance. So arbeitet jeder Assistent mit klaren Grenzen und kann sich kontinuierlich weiterentwickeln.',
+      primaryCta: 'Jetzt starten',
+      secondaryCta: 'Skills ansehen'
+    },
+    features: [
+      {
+        title: 'Plattformübergreifender Zugang',
+        description:
+          'Einheitlicher Zugriff und zentrale Verwaltung für Desktop-, Mobile- und Container-Umgebungen.'
+      },
+      {
+        title: 'Modulare Fähigkeiten',
+        description:
+          'Kombinierbare Skills mit nachvollziehbaren und austauschbaren Fähigkeiten.'
+      },
+      {
+        title: 'Sicherheit und Beobachtbarkeit',
+        description:
+          'Integrierte Berechtigungen, Logs, Rollbacks und Compliance-Richtlinien.'
+      }
+    ],
+    brand: {
+      label: 'Markenübersicht',
+      title: 'Openclaw (Moltbot / Clawdbot)',
+      description:
+        'Openclaw, Moltbot und Clawdbot sind unterschiedliche Namen für dasselbe persönliche KI-Assistenten-Ökosystem. Wir bündeln Zugang, Skills, Automatisierung und Sicherheits-Governance in einer einheitlichen Oberfläche.'
+    },
+    navCards: {
+      install: {
+        title: 'Installation und Zugang',
+        description: 'Unterstützt Windows, macOS, Linux, Docker und WSL.'
+      },
+      skills: {
+        title: 'Skills-Ökosystem',
+        description: 'Von Vorlagen bis zu realen Anwendungsfällen schnell wiederverwenden.'
+      },
+      pitfalls: {
+        title: 'Sicherheit und Governance',
+        description: 'Checklisten für Berechtigungen, Versionen, Leistung und Sicherheit.'
+      },
+      cta: 'Ansehen'
+    },
+    ecosystem: {
+      methodLabel: 'Ökosystem-Methode',
+      methodTitle: 'Vom Zugang zur Weiterentwicklung',
+      methodDescription:
+        'Nach dem einheitlichen Zugang baust du mit konfigurierbaren Skills Fähigkeitsketten auf und verbesserst sie mit Beobachtbarkeit.',
+      collaborationLabel: 'Zusammenarbeitsmodell',
+      collaborationTitle: 'Klare Grenzen',
+      collaborationDescription:
+        'Berechtigungsbereiche, Logs und Versionskontrolle halten Assistenten innerhalb sicherer Grenzen.',
+      growthLabel: 'Wachstumspfad',
+      growthTitle: 'Kontinuierliche Evolution',
+      growthDescription:
+        'Von der Basisinstallation bis zur fortgeschrittenen Automatisierung wächst das Ökosystem Schritt für Schritt.'
+    },
+    latest: {
+      title: 'Neueste Inhalte',
+      subtitle: 'Letzte 5 Beiträge'
+    },
+    join: {
+      title: 'Dem Clawbot-Ökosystem beitreten',
+      description:
+        'Von Zugang über Fähigkeiten bis zu Governance und Best Practices startest du deinen persönlichen KI-Assistenten deutlich schneller.',
+      cta: 'Jetzt loslegen'
+    },
+    hub: {
+      heroLabel: 'Clawbot / Hub',
+      relatedTitle: 'Verwandte Links',
+      relatedEmpty: 'Noch keine verwandten Inhalte vorhanden.'
+    },
+    notFound: {
+      title: 'Seite nicht gefunden',
+      description: 'Die angeforderte Seite existiert nicht. Zurück zur Startseite.',
+      cta: 'Zur Startseite'
+    },
+    hubs: {
+      install: 'Installation',
+      skills: 'Skills',
+      pitfalls: 'Hinweise'
+    },
+    links: {
+      hubHome: '{hub}-Hub',
+      windowsInstall: 'Windows-Installationsanleitung',
+      macosInstall: 'macOS-Installationsanleitung',
+      linuxInstall: 'Linux-Installationsanleitung',
+      pitfallVersion: 'Hinweis: Versionskonflikt',
+      pitfallPermissions: 'Hinweis: zu viele Berechtigungen',
+      skillsQuickstart: 'Skills Schnellstart',
+      skillsBestPractices: 'Skills Best Practices',
+      apiKeySafety: 'API-Key-Sicherheit',
+      performancePitfalls: 'Leistungs-Hinweise'
     }
   }
 };
