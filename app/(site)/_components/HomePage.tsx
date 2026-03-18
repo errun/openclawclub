@@ -38,8 +38,11 @@ export default function HomePage({ locale }: { locale: Locale }) {
             </Link>
             <Link
               href={withLocale(locale, '/skills/free-token')}
-              className="inline-flex min-h-16 w-full cursor-pointer items-center justify-center rounded-2xl border border-accent/45 bg-[linear-gradient(180deg,rgba(200,165,98,0.16),rgba(30,38,51,0.8))] px-8 py-4 text-lg font-semibold text-ink shadow-[0_20px_46px_rgba(200,165,98,0.16)] transition-colors hover:border-accent/75 hover:bg-[linear-gradient(180deg,rgba(200,165,98,0.22),rgba(30,38,51,0.9))] sm:w-auto"
+              className="relative inline-flex min-h-16 w-full cursor-pointer items-center justify-center rounded-2xl border border-accent/45 bg-[linear-gradient(180deg,rgba(200,165,98,0.16),rgba(30,38,51,0.8))] px-8 py-4 text-lg font-semibold text-ink shadow-[0_20px_46px_rgba(200,165,98,0.16)] transition-colors hover:border-accent/75 hover:bg-[linear-gradient(180deg,rgba(200,165,98,0.22),rgba(30,38,51,0.9))] sm:w-auto"
             >
+              <span className="pointer-events-none absolute -right-2 -top-2 rounded-full border border-[#ffd5a6]/60 bg-[linear-gradient(135deg,#ff7a3d,#ff4d4d)] px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.24em] text-white shadow-[0_12px_28px_rgba(255,94,58,0.35)]">
+                HOT
+              </span>
               Free Token
             </Link>
           </div>
