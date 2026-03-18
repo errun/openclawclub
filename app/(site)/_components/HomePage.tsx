@@ -4,72 +4,63 @@ import PostCard from './PostCard';
 import { getAllPosts } from '@/lib/content';
 import {
   LOCALE_LABELS,
-  ROUTED_LOCALES,
+  SUPPORTED_LOCALES,
   getStrings,
   type Locale,
   withLocale
 } from '@/lib/i18n';
 
-type RoutedLocale = Exclude<Locale, 'en'>;
-
-const LANGUAGE_GATEWAY_COPY: Record<
-  Locale,
-  { eyebrow: string; title: string; description: string }
-> = {
-  en: {
-    eyebrow: 'Language Gateway',
-    title: 'Choose your homepage language',
-    description:
-      'Open Chinese, Japanese, Korean, or German versions directly from the homepage. When a localized article is missing, the site falls back to English content.'
-  },
-  zh: {
-    eyebrow: '多语言入口',
-    title: '选择你的首页语言版本',
-    description:
-      '可直接进入中文、日文、韩文、德文首页；如果某篇文章暂未翻译，站点会自动回退到英文内容。'
-  },
-  ja: {
-    eyebrow: '多言語入口',
-    title: 'ホームの言語版を選択',
-    description:
-      '中国語、日本語、韓国語、ドイツ語のホームへ直接移動できます。未翻訳の記事は英語版へ自動フォールバックします。'
-  },
-  ko: {
-    eyebrow: '다국어 입구',
-    title: '홈페이지 언어 버전 선택',
-    description:
-      '중국어, 일본어, 한국어, 독일어 홈으로 바로 이동할 수 있습니다. 번역이 없는 글은 영어 콘텐츠로 자동 대체됩니다.'
-  },
-  de: {
-    eyebrow: 'Sprachzugang',
-    title: 'Wähle deine Sprachversion der Startseite',
-    description:
-      'Öffne die chinesische, japanische, koreanische oder deutsche Startseite direkt. Falls ein lokalisierter Artikel fehlt, verwendet die Website automatisch die englische Version.'
-  }
-};
-
-const LANGUAGE_MARKS: Record<RoutedLocale, string> = {
-  zh: 'CN',
-  ja: 'JP',
-  ko: 'KR',
-  de: 'DE'
-};
-
-const LANGUAGE_DESCRIPTIONS: Record<RoutedLocale, string> = {
-  zh: '简体中文导览',
-  ja: '日本語ホーム',
-  ko: '한국어 홈',
-  de: 'Deutsche Startseite'
+const LANGUAGE_SWITCHER_LABEL: Record<Locale, string> = {
+  en: 'Languages',
+  zh: '语言',
+  ja: '言語',
+  ko: '언어',
+  de: 'Sprachen'
 };
 
 export default function HomePage({ locale }: { locale: Locale }) {
   const t = getStrings(locale);
   const latestPosts = getAllPosts(locale).slice(0, 5);
-  const languageGateway = LANGUAGE_GATEWAY_COPY[locale];
-  const languageLocales = ROUTED_LOCALES as RoutedLocale[];
+  const languageLabel = LANGUAGE_SWITCHER_LABEL[locale];
 
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-16 px-6 py-16">
+      <nav className="reveal flex flex-col gap-4 rounded-[28px] border border-line/70 bg-panel/70 px-5 py-4 backdrop-blur md:flex-row md:items-center md:justify-between">
+        <Link
+          href={withLocale(locale, '/')}
+          className="inline-flex items-center gap-3 self-start rounded-full border border-line/70 bg-background/45 px-4 py-2 transition-colors hover:border-accent/45 hover:bg-panel/85"
+        >
+          <span className="inline-flex h-2.5 w-2.5 rounded-full bg-accent shadow-[0_0_18px_rgba(200,165,98,0.85)]" />
+          <span className="text-sm font-semibold uppercase tracking-[0.28em] text-ink">
+            Openclaw
+          </span>
+        </Link>
+        <div className="flex flex-col gap-2 md:items-end">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.32em] text-muted/70">
+            {languageLabel}
+          </span>
+          <div className="flex flex-wrap gap-2 md:justify-end">
+            {SUPPORTED_LOCALES.map((targetLocale) => {
+              const isCurrent = locale === targetLocale;
+
+              return (
+                <Link
+                  key={targetLocale}
+                  href={withLocale(targetLocale, '/')}
+                  className={[
+                    'inline-flex min-h-10 items-center justify-center rounded-full border px-4 py-2 text-sm font-semibold transition-all',
+                    isCurrent
+                      ? 'border-accent/75 bg-accent text-black shadow-[0_12px_28px_rgba(200,165,98,0.28)]'
+                      : 'border-line/70 bg-background/45 text-muted hover:border-accent/45 hover:bg-panel/90 hover:text-ink'
+                  ].join(' ')}
+                >
+                  {LOCALE_LABELS[targetLocale]}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </nav>
       <section className="reveal relative overflow-hidden rounded-[32px] border border-line/70 bg-panel/70 p-10 backdrop-blur md:p-14">
         <div className="orb absolute -right-12 -top-16 h-48 w-48 rounded-full bg-accent/20 blur-3xl" />
         <div className="absolute -bottom-24 left-16 h-40 w-40 rounded-full bg-ink/10 blur-3xl" />
@@ -105,55 +96,6 @@ export default function HomePage({ locale }: { locale: Locale }) {
               </span>
               Free Token
             </Link>
-          </div>
-          <div className="mt-8 rounded-[28px] border border-line/70 bg-[radial-gradient(circle_at_top_left,rgba(200,165,98,0.16),transparent_34%),linear-gradient(180deg,rgba(16,20,30,0.88),rgba(9,12,18,0.96))] p-5 shadow-[0_18px_48px_rgba(5,8,14,0.34)] backdrop-blur sm:p-6">
-            <div className="flex flex-col gap-4 border-b border-line/70 pb-5 lg:flex-row lg:items-end lg:justify-between">
-              <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-accent/80">
-                  {languageGateway.eyebrow}
-                </p>
-                <h2 className="mt-3 text-2xl font-semibold text-ink">
-                  {languageGateway.title}
-                </h2>
-              </div>
-              <p className="max-w-2xl text-sm leading-7 text-muted">
-                {languageGateway.description}
-              </p>
-            </div>
-            <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-              {languageLocales.map((targetLocale) => {
-                const isCurrent = locale === targetLocale;
-
-                return (
-                  <Link
-                    key={targetLocale}
-                    href={withLocale(targetLocale, '/')}
-                    className={[
-                      'group relative overflow-hidden rounded-[24px] border p-5 backdrop-blur transition-all duration-300 hover:-translate-y-1',
-                      isCurrent
-                        ? 'border-accent/70 bg-[linear-gradient(180deg,rgba(200,165,98,0.18),rgba(20,27,38,0.92))] shadow-[0_18px_44px_rgba(200,165,98,0.16)]'
-                        : 'border-line/70 bg-[linear-gradient(180deg,rgba(18,24,35,0.84),rgba(10,13,20,0.94))] hover:border-accent/55 hover:shadow-[0_18px_42px_rgba(5,8,14,0.38)]'
-                    ].join(' ')}
-                  >
-                    <div className="absolute -right-6 top-0 h-20 w-20 rounded-full bg-accent/14 blur-2xl transition-transform duration-300 group-hover:scale-110" />
-                    <div className="relative flex items-start justify-between gap-3">
-                      <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-accent/35 bg-accent/12 text-sm font-bold uppercase tracking-[0.22em] text-accent">
-                        {LANGUAGE_MARKS[targetLocale]}
-                      </span>
-                      <span className="rounded-full border border-line/70 bg-background/45 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-muted">
-                        /{targetLocale}
-                      </span>
-                    </div>
-                    <p className="relative mt-5 text-xl font-semibold text-ink">
-                      {LOCALE_LABELS[targetLocale]}
-                    </p>
-                    <p className="relative mt-2 text-sm text-muted">
-                      {LANGUAGE_DESCRIPTIONS[targetLocale]}
-                    </p>
-                  </Link>
-                );
-              })}
-            </div>
           </div>
           <div className="mt-10 grid gap-4 text-sm sm:grid-cols-3">
             {t.features.map((item) => (
