@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import JsonLd from './JsonLd';
 import NavCard from './NavCard';
 import PostCard from './PostCard';
 import { getAllPosts } from '@/lib/content';
@@ -9,6 +10,7 @@ import {
   type Locale,
   withLocale
 } from '@/lib/i18n';
+import { buildWebsiteSchema } from '@/lib/schema';
 
 const LANGUAGE_SWITCHER_LABEL: Record<Locale, string> = {
   en: 'Languages',
@@ -25,6 +27,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
 
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-16 px-6 py-16">
+      <JsonLd data={buildWebsiteSchema(locale)} />
       <nav className="reveal flex flex-col gap-4 rounded-[28px] border border-line/70 bg-panel/70 px-5 py-4 backdrop-blur md:flex-row md:items-center md:justify-between">
         <Link
           href={withLocale(locale, '/')}

@@ -1,10 +1,18 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Breadcrumbs from './Breadcrumbs';
+import JsonLd from './JsonLd';
 import PostCard from './PostCard';
 import { getHubLabel } from '@/lib/links';
-import { getHubMeta, getPostsByHub, HUBS, type Hub } from '@/lib/content';
-import { getStrings, type Locale, withLocale } from '@/lib/i18n';
+import {
+  getHubMeta,
+  getPostsByHub,
+  hasLocalizedHubContent,
+  HUBS,
+  type Hub
+} from '@/lib/content';
+import { DEFAULT_LOCALE, getStrings, type Locale, withLocale } from '@/lib/i18n';
+import { buildBreadcrumbSchema } from '@/lib/schema';
 
 export default function HubPage({
   hub,
@@ -17,6 +25,8 @@ export default function HubPage({
   const t = getStrings(locale);
   const meta = getHubMeta(hub, locale);
   const posts = getPostsByHub(hub, locale, { includeFallback: false });
+  const isIndexable = locale === DEFAULT_LOCALE || hasLocalizedHubContent(hub, locale);
+  const hubUrl = withLocale(locale, `/${hub}`);
   const relatedLinks = posts.slice(0, 8).map((post) => ({
     href: withLocale(locale, post.url),
     label: post.title
@@ -24,6 +34,20 @@ export default function HubPage({
 
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-10 px-6 py-16">
+      {isIndexable ? (
+        <JsonLd
+          data={buildBreadcrumbSchema([
+            {
+              name: t.nav.home,
+              url: withLocale(locale, '/')
+            },
+            {
+              name: getHubLabel(hub, locale),
+              url: hubUrl
+            }
+          ])}
+        />
+      ) : null}
       <Breadcrumbs
         items={[
           { label: t.nav.home, href: withLocale(locale, '/') },

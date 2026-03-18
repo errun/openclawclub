@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import Breadcrumbs from './Breadcrumbs';
+import JsonLd from './JsonLd';
 import { SkillCard } from './MdxSkillCard';
 import { Tab, Tabs } from './MdxTabs';
 import { getHubLabel, getRelatedLinksForPost } from '@/lib/links';
@@ -10,7 +11,8 @@ import {
   HUBS,
   type Hub
 } from '@/lib/content';
-import { getStrings, type Locale, withLocale } from '@/lib/i18n';
+import { DEFAULT_LOCALE, getStrings, type Locale, withLocale } from '@/lib/i18n';
+import { buildArticleSchema, buildBreadcrumbSchema } from '@/lib/schema';
 
 export default function PostPage({
   hub,
@@ -25,10 +27,40 @@ export default function PostPage({
   const post = getPostBySlug(hub, slug, locale);
   if (!post) notFound();
   const t = getStrings(locale);
+  const isIndexable = locale === DEFAULT_LOCALE || post.resolvedLocale === locale;
+  const canonicalLocale = post.resolvedLocale;
+  const canonicalHubUrl = withLocale(canonicalLocale, `/${hub}`);
+  const canonicalPostUrl = withLocale(canonicalLocale, post.url);
   const relatedLinks = getRelatedLinksForPost(hub, slug, locale);
 
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-4xl flex-col gap-10 px-6 py-16">
+      {isIndexable ? (
+        <>
+          <JsonLd
+            data={buildBreadcrumbSchema([
+              {
+                name: getStrings(canonicalLocale).nav.home,
+                url: withLocale(canonicalLocale, '/')
+              },
+              {
+                name: getHubLabel(hub, canonicalLocale),
+                url: canonicalHubUrl
+              },
+              {
+                name: post.title,
+                url: canonicalPostUrl
+              }
+            ])}
+          />
+          <JsonLd
+            data={buildArticleSchema({
+              post,
+              canonicalLocale
+            })}
+          />
+        </>
+      ) : null}
       <Breadcrumbs
         items={[
           { label: t.nav.home, href: withLocale(locale, '/') },
